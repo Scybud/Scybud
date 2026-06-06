@@ -110,7 +110,7 @@ nav > ul > li {
   display: block;
   border-bottom: 2px solid #ffffff;
   text-align: center;
-  margin: 30px auto;
+  margin: 10px auto;
   text-align: center;
   text-wrap: nowrap;
   overflow: hidden;
@@ -163,7 +163,7 @@ main {
 #hero {
   text-align: center;
   padding: 50px 10px;
-  margin: 40px auto;
+  margin: 10px auto;
   max-width: 600px;
   width: 90%;
   box-shadow: 0 0 15px rgba(79, 78, 78, 0.2);
