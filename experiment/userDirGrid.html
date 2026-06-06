@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        main {
+            background: #2f2e2e;
+            width: 100%;
+            max-width: 800px;
+            min-height: 100px;
+            padding: 12px;
+            border-radius: 8px;
+                     display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #userGrid {
+                        width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 6px;
+        }
+.card {
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+    border-radius: 8px;
+}
+.card img {
+    aspect-ratio: 4 / 4;
+}
+.card p {
+    margin: 0 4px;
+}
+    </style>
+</head>
+<body>
+    <h1>Users</h1>
+    
+    <main>
+<div id="userGrid">
+
+</div>
+    </main>
+
+<script>
+const userGrid = document.getElementById("userGrid");
+
+async function handleUserGrid() {
+    if(userGrid) {
+
+    try {
+      const res = await  fetch("https://randomuser.me/api/?results=10")
+       
+      const data = await res.json()
+      
+      console.log(data.results)
+
+      const profiles = data.results;
+
+      for(const p of profiles) {
+        const card = createCards(p)
+
+        userGrid.append(card)
+      };
+
+} catch (error) {
+console.error(error)
+}
+}
+}
+handleUserGrid();
+
+function createCards(data) {
+const card = document.createElement("div")
+card.classList.add("card")
+
+card.innerHTML = `
+<img src="https://ui-avatars.com/api/?name=${data.name.first}+${data.name.last}&background=random" />
+<p class="profileName">${data.name.title} ${data.name.first} ${data.name.last}</p>
+<p class="profileEmail">${data.email}</p>
+`
+return card;
+}
+    </script>
+
+</body>
+</html>
