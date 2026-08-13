@@ -49,18 +49,52 @@ width: 90%;
   color: var(--accent);
 }
 
-details {
+details, .dropdown {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 55px;
   right: var(--space-sm);
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) var(--space-sm);
     background-color: var(--bg-secondary);
-  width: 250px;
+    width: 250px;
+    max-width: 90%;
+    height: 35px;
+    max-height: fit-content;
+  overflow: hidden;
   z-index: 1;
   margin: 0 auto;
   border-radius: var(--radius-lg);
+  transition: height 0.5s ease;
 }
-details a {
+.dropdown .dropdownName::before {
+  content: "▲";
+  display: inline-block;
+  margin-right: var(--space-xs);
+  transition: all 0.5s ease;
+}
+.drop::-webkit-scrollbar {
+  width: 4px;
+}
+
+.drop::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.drop::-webkit-scrollbar-thumb {
+  background: var(--surface-secondary);
+  border-radius: 999px;
+}
+.drop {
+  height: 400px;
+  overflow: auto;
+    scrollbar-width: thin;
+}
+.dropdown.drop .dropdownName::before {
+  transform: rotate(180deg);
+}
+
+details a, .dropdown a {
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -71,20 +105,32 @@ details a {
   border-radius: var(--radius-sm);
   padding: var(--space-xs);
 }
-details a:hover {
+details a:hover, .dropdown a:hover {
     background-color: var(--active);
   color: var(--text-secondary);
 }
-summary {
+summary, .dropdownName {
     background-color: var(--bg-secondary);
   border-radius: var(--radius-lg);
   padding: var(--space-xs) var(--space-sm);
   cursor: pointer;
   user-select: none;
 }
-summary:hover {
+#dropdownOpen {
+border: none;
+text-align: left;
+font-size: var(--text-md);
+padding: var(--space-sm);
+margin-bottom: var(--space-sm);
+color: var(--text-primary);
+}
+#dropdownOpen:active {
+  transform: scale(0.98);
+}
+summary:hover, .dropdownName:hover {
   background-color: var(--active);
 }
+
 /* ================================
    RESPONSIVE
    ================================ */

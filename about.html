@@ -68,22 +68,8 @@
         <span id="middlebar"></span>
         <span id="bottombar"></span>
       </div>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-    <header>
-      <div id="menuIcon" onclick="togglesidebar()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
- <nav class="sidebar-nav" aria-label="sidebar navigation">
+
+       <nav class="sidebar-nav" aria-label="sidebar navigation">
           <a class="nav-btn" href="index.html">Home</a>
           <a class="nav-btn" href="about.html">About</a>
           <a class="nav-btn" href="projects.html">Projects</a>
@@ -91,17 +77,34 @@
           <a class="nav-btn" href="blog.html">Blog</a>
 
       </nav>
+
+    </div>
+    <header>
+      <div id="menuIcon" onclick="togglesidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+            <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </header>
     <main class="container">
       <h1 id="welcome-message">Learn more about Scybud.</h1>
-      <details>
-        <summary>Navigate</summary>
+      <div class="dropdown">
+        <button class="dropdownName" id="dropdownOpen">Navigate</button>
         <a href="#theStory">The Story</a>
         <a href="#mission">Mission</a>
         <a href="#vision">Vision</a>
         <a href="#scyflix-container">Scyflix</a>
         <a href="#aboutFounder">About The Founder</a>
-      </details>
+      </div>
       <article>
         <section id="theStory">
           <h2>The Story</h2>

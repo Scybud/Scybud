@@ -89,8 +89,8 @@
     
     <main class="container">
       <h1 id="welcome-message">Explore all Scybud projects.</h1>
-        <details>
-        <summary>Navigate</summary>
+        <div class="dropdown">
+        <button type="button" class="dropdownName" id="dropdownOpen">Navigate</button>
         <a href="#canvart">CanvArt</a>
         <a href="#loghue">LogHue</a>
         <a href="#scybud-ui">Scybud UI</a>
@@ -106,7 +106,9 @@
         <a href="#robotcar">A Basic Robot Car</a>
         <a href="#calculator">A Basic calculator</a>
         <a href="#experiments">Experiments</a>
-      </details>
+      </div>
+
+
       <article>
         <section id="projects">
             <section id="canvart" class="project">
@@ -306,6 +308,7 @@
 
       <p>&copy; scybud | All rights reserved</p>
     </footer>
+
     <script src="main.js" defer></script>
   </body>
 </html>
