@@ -70,11 +70,9 @@ display: none;  }
 
   z-index: 2000;
   padding-top: var(--space-md);
-  display: none;
 }
 
 #sidebar.show {
-  display: block;
   transform: translateX(0);
 }
 
