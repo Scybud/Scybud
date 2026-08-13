@@ -11,7 +11,7 @@
 
   header {
     justify-content: flex-start !important;
-    padding-left: 15px;
+    padding-left: var(--space-md);
   }
 
   /* HAMBURGER BUTTON */
@@ -19,7 +19,7 @@
   #cancelIcon span {
     width: 26px;
     height: 3px;
-    border-radius: 20px;
+    border-radius: var(--radius-md);
     background: var(--accent);
     transition: 0.3s ease;
   }
@@ -28,13 +28,13 @@
   #cancelIcon {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: var(--space-xs);
     cursor: pointer;
-    margin-left: 5px;
+    margin-left: var(--space-xs);
   }
 
   #cancelIcon {
-    margin-top: 5px;
+    margin-top: var(--space-xs);
   }
 
   /* Cancel (X) animation */
@@ -58,10 +58,10 @@ display: none;  }
   left: 0;
 
   width: 75vw;
+  max-width: 260px;
   height: 100vh;
 
-  background: rgba(2, 27, 64, 0.92);
-  backdrop-filter: blur(15px);
+  background: var(--bg-secondary);
 
   border-right: 2px solid rgba(255,255,255,0.12);
 
@@ -69,7 +69,7 @@ display: none;  }
   transition: transform 0.35s ease;
 
   z-index: 2000;
-  padding-top: 80px;
+  padding-top: var(--space-md);
   display: none;
 }
 
@@ -78,21 +78,24 @@ display: none;  }
   transform: translateX(0);
 }
 
-#sidebar nav ul {
+#sidebar nav {
+  justify-content: left;
+}
+#sidebar .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  padding-left: 30px;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  margin-top: var(--space-md);
 }
 
-#sidebar nav ul li a {
-  font-size: 1.25rem;
+#sidebar .sidebar-nav a {
+  display: block;
+  width: 100%;
   font-weight: 500;
-  color: #fff;
   transition: 0.25s ease;
 }
 
-#sidebar nav ul li a:hover {
-  color: var(--accent);
-  transform: translateX(8px);
+#sidebar .sidebar-nav a:hover {
+  background: var(--hover-bg);
 }

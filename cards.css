@@ -2,10 +2,10 @@
   CARDS
    ================================ */
 #cards {
-  margin: 20px 10px;
+  margin: var(--space-lg) var(--space-sm);
   display: flex;
   justify-content: space-between;
-  gap: 14px;
+  gap: var(--space-md);
   overflow-y: auto;
 }
 .card {
@@ -15,32 +15,29 @@ width: 90%;
 }
 .card,
 .project {
-  background: var(--bg-mid);
-  padding: 20px;
-  border-radius: var(--radius);
-  margin: 20px auto;
-  box-shadow: var(--shadow);
+  background: var(--card-bg);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  margin: var(--space-lg) auto;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .card:hover,
 .project:hover{
   transform: translateY(-6px);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 10px 10px rgba(112, 112, 112, 0.25);
 }
 #tags {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  overflow: auto;
+  gap: var(--space-sm);
   width: 100%;
 }
 .tag {
-  flex: 1;
-  background: var(--bg-mid);
   width: fit-content;
   height: fit-content;
-  padding: 5px 10px;
-  border-radius: 20px;
+  padding: var(--space-xs) var(--space-sm);
   min-width: 50px;
 }
 .tag p {
@@ -53,39 +50,40 @@ width: 90%;
 }
 
 details {
-  width: auto;
-  position: sticky;
-  top: 50px;
-  left: 0;
+  position: fixed;
+  top: 55px;
+  right: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+    background-color: var(--bg-secondary);
+  width: 250px;
   z-index: 1;
-  background-color: #021b40;
   margin: 0 auto;
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
 }
 details a {
+  text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  color: white;
+  justify-content: center;
+  color: var(--muted);
   text-decoration: none;
-  border: 1px dotted #ffe600;
   margin: 2px;
-  border-radius: 50px;
-  padding: 5px;
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs);
 }
 details a:hover {
-  color: #ffe600;
+    background-color: var(--active);
+  color: var(--text-secondary);
 }
 summary {
-  border: 2px solid white;
-  width: fit-content;
-  border-radius: 10px;
-  padding: 5px 10px;
+    background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xs) var(--space-sm);
   cursor: pointer;
   user-select: none;
 }
 summary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--active);
 }
 /* ================================
    RESPONSIVE
@@ -93,15 +91,15 @@ summary:hover {
 
 @media (max-width: 700px) {
   nav {
-    gap: 12px;
+    gap: var(--space-sm);
   }
 
   nav a {
-    font-size: 14px;
+    font-size: var(--text-md);
   }
 
   #hero {
-    padding: 35px 15px;
+    padding: var(--space-lg) var(--space-md);
   }
 
   .card {
@@ -110,13 +108,13 @@ summary:hover {
 }
 @media (max-width: 800px) {
   #cards {
-    margin: 20px auto;
+    margin: var(--space-lg) auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
   }
   .card {
     width: 85vw;
-    margin: 10px auto;
+    margin: var(--space-sm) auto;
   }
 }

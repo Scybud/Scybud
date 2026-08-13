@@ -41,6 +41,16 @@
     <meta name="author" content="Abdulroqib Oladipo" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scybud Projects</title>
+
+       <link
+  rel="stylesheet"
+  href="https://ui.scybud.com/css/variables.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://ui.scybud.com/components/buttons/nav-buttons.css"
+/>
+
         <link rel="stylesheet" href="sidebar.css" />
     <link rel="stylesheet" href="cards.css" />
     <link rel="stylesheet" href="styles.css" />
@@ -52,13 +62,13 @@
         <span id="middlebar"></span>
         <span id="bottombar"></span>
       </div>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+     <nav class="sidebar-nav" aria-label="sidebar navigation">
+          <a class="nav-btn" href="index.html">Home</a>
+          <a class="nav-btn" href="about.html">About</a>
+          <a class="nav-btn" href="projects.html">Projects</a>
+          <a class="nav-btn" href="contact.html">Contact</a>
+          <a class="nav-btn" href="blog.html">Blog</a>
+
       </nav>
     </div>
     <header>
@@ -76,12 +86,19 @@
         </ul>
       </nav>
     </header>
+    
     <main class="container">
       <h1 id="welcome-message">Explore all Scybud projects.</h1>
         <details>
         <summary>Navigate</summary>
-        <a href="#rushsite">RushSite</a>
+        <a href="#canvart">CanvArt</a>
+        <a href="#loghue">LogHue</a>
+        <a href="#scybud-ui">Scybud UI</a>
         <a href="#trytasty">TryTasty</a>
+        <a href="#rushsite">RushSite</a>
+        <a href="#dakat">Dakat</a>
+        <a href="#zefeed">ZeFeed</a>
+        <a href="#propdek">PropDek</a>
         <a href="#playbud">Playbud</a>
         <a href="#resbuild">ResBuild</a>
         <a href="#thias-vogue">Thia`s Vogue</a>
@@ -92,19 +109,60 @@
       </details>
       <article>
         <section id="projects">
-            <section id="rushsite" class="project">
-                <h2><a href="https://scyflix.github.io/RushSite/">RushSite</a></h2>
-                <p><span>RushSite</span>is a web App that allows you to create and export portfolio websites easily.</p>
-                <p>With RushSite, you can easily edit with autosave, export as HTML file and host anywhere.</p>
-                <p><span>Tech Stack:</span> HTML, CSS, and JavaScript</p>
-                <a class="btn" href="https://scyflix.github.io/RushSite/" target="_blank">View</a>
+            <section id="canvart" class="project">
+                <h2><a href="https://canvart.scybud.com/" target="_blank">CanvArt</a></h2>
+                <p><span>CanvArt</span> is a creative platform for discovering and exploring digital artwork.</p>
+                <p><span>View:</span> CanvArt is available at its dedicated Scybud subdomain.</p>
+                <p><span>Tech Stack:</span> Web technologies and Supabase</p>
+                <a class="btn" href="https://canvart.scybud.com/" target="_blank">View</a>
             </section>
-             <section id="trytasty" class="project">
-                <h2><a href="https://trytasty.de/">TryTasty</a></h2>
-                <p><span>TryTasty</span> is a fun recipe website for quick, tasty and fun recipes at are easy to make.</p>
-                <p>Originally created as a practice project, it is now aligned with the vision of evolving into a food service brand.</p>
-                <p><span>Tech Stack:</span> HTML, CSS, and JavaScript</p>
-                <a class="btn" href="https://trytasty.de/" target="_blank">View</a>
+
+            <section id="loghue" class="project">
+                <h2><a href="https://loghue.scybud.com/" target="_blank">LogHue</a></h2>
+                <p><span>LogHue</span> is a workspace and productivity application for organizing tasks, notes, discussions and projects.</p>
+                <p>The Scybud subdomain redirects to the main LogHue domain.</p>
+                <p><span>View:</span> loghue.com</p>
+                <a class="btn" href="https://loghue.com/" target="_blank">View</a>
+            </section>
+
+            <section id="scybud-ui" class="project">
+                <h2><a href="https://ui.scybud.com/" target="_blank">Scybud UI</a></h2>
+                <p><span>Scybud UI</span> is Scybud's reusable UI component library for web projects.</p>
+                <p><span>Tech Stack:</span> HTML, CSS and JavaScript</p>
+                <a class="btn" href="https://ui.scybud.com/" target="_blank">View</a>
+            </section>
+
+            <section id="trytasty" class="project">
+                <h2><a href="https://trytasty.scybud.com/" target="_blank">TryTasty</a></h2>
+                <p><span>TryTasty</span> is a food and recipe project focused on quick, tasty and easy-to-make recipes.</p>
+                <p><span>Tech Stack:</span> HTML, CSS and JavaScript</p>
+                <a class="btn" href="https://trytasty.scybud.com/" target="_blank">View</a>
+            </section>
+
+            <section id="rushsite" class="project">
+                <h2><a href="https://rushsite.scybud.com/" target="_blank">RushSite</a></h2>
+                <p><span>RushSite</span> is a web app that allows you to create and export portfolio websites easily.</p>
+                <p>With RushSite, you can edit with autosave, export as an HTML file and host anywhere.</p>
+                <p><span>Tech Stack:</span> HTML, CSS and JavaScript</p>
+                <a class="btn" href="https://rushsite.scybud.com/" target="_blank">View</a>
+            </section>
+
+            <section id="dakat" class="project">
+                <h2><a href="https://dakat.scybud.com/" target="_blank">Dakat</a></h2>
+                <p><span>Dakat</span> is a Scybud project currently being developed.</p>
+                <a class="btn" href="https://dakat.scybud.com/" target="_blank">View</a>
+            </section>
+
+            <section id="zefeed" class="project">
+                <h2><a href="https://zefeed.scybud.com/" target="_blank">ZeFeed</a></h2>
+                <p><span>ZeFeed</span> is a technology news aggregation project from Scybud.</p>
+                <a class="btn" href="https://zefeed.scybud.com/" target="_blank">View</a>
+            </section>
+
+            <section id="propdek" class="project">
+                <h2><a href="https://propdek.scybud.com/" target="_blank">PropDek</a></h2>
+                <p><span>PropDek</span> is a Scybud project currently being developed.</p>
+                <a class="btn" href="https://propdek.scybud.com/" target="_blank">View</a>
             </section>
             <section id="playbud" class="project">
                 <h2><a href="https://scyflix.github.io/Playbud/" target="_blank">Playbud</a></h2>
@@ -181,46 +239,68 @@
 
         <h5>Also From Scybud</h5>
         <div id="scybudApps">
-       
-        <a href="https://scyflix.github.io/RushSite/" target="_blank">
+
+        <a href="https://canvart.scybud.com/" target="_blank">
           <div class="appcontainer">
-          <img
-            src="https://scyflix.github.io/RushSite/assets/RushSite%20logo.svg"
-            alt="RushSite Logo"
-            />
-            <span>RushSite</span>
+            <span>CanvArt</span>
           </div>
         </a>
-        <a href="https://trytasty.de/" target="_blank">
-          <div class="appcontainer">
 
-            <img
-            src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1756143298/export202508172154182910_eqqsko.avif"
-            alt="TryTasty Logo"
-            />
+        <a href="https://loghue.com/" target="_blank">
+          <div class="appcontainer">
+            <span>LogHue</span>
+          </div>
+        </a>
+
+        <a href="https://ui.scybud.com/" target="_blank">
+          <div class="appcontainer">
+            <span>Scybud UI</span>
+          </div>
+        </a>
+
+        <a href="https://trytasty.scybud.com/" target="_blank">
+          <div class="appcontainer">
             <span>TryTasty</span>
           </div>
         </a>
-        <a href="https://scyflix.github.io/Playbud/" target="_blank">
-         <div class="appcontainer">
 
-           <img
-             src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1757763602/ChatGPT_Image_Sep_13_2025_01_23_30_PM_gqilng.png"
-             alt="Playbud Logo"
-           />
-           <span>Playbud</span>
-         </div>
+        <a href="https://rushsite.scybud.com/" target="_blank">
+          <div class="appcontainer">
+            <span>RushSite</span>
+          </div>
         </a>
-        <a href="https://scyflix.github.io/Scybud-Labs/" target="_blank">
-         <div class="appcontainer">
-           <img
-             src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1750181306/My%20Brand/file_00000000610c6243beec099c93f3f4eb_wgtezq.png"
-             alt="Scybud Logo"
-             />
-             <span>Scybud</span>
-            </div>
-          </a>
-        </div>
+
+        <a href="https://dakat.scybud.com/" target="_blank">
+          <div class="appcontainer">
+            <span>Dakat</span>
+          </div>
+        </a>
+
+        <a href="https://zefeed.scybud.com/" target="_blank">
+          <div class="appcontainer">
+            <span>ZeFeed</span>
+          </div>
+        </a>
+
+        <a href="https://propdek.scybud.com/" target="_blank">
+          <div class="appcontainer">
+            <span>PropDek</span>
+          </div>
+        </a>
+
+        <a href="https://scybud.com/" target="_blank">
+          <div class="appcontainer">
+            <span>Scybud</span>
+          </div>
+        </a>
+
+        <a href="https://scyflix.github.io/Playbud/" target="_blank">
+          <div class="appcontainer">
+            <span>Playbud</span>
+          </div>
+        </a>
+
+      </div>
       </div>
       <hr />
 

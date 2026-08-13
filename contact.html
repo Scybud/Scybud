@@ -41,6 +41,19 @@
     <meta name="author" content="Abdulroqib Oladipo" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Scybud</title>
+
+        <link
+  rel="stylesheet"
+  href="https://ui.scybud.com/css/variables.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://ui.scybud.com/components/buttons/nav-buttons.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://ui.scybud.com/components/buttons/global-buttons.css"
+/>
         <link rel="stylesheet" href="sidebar.css" />
     <link rel="stylesheet" href="cards.css" />
     <link rel="stylesheet" href="styles.css" />
@@ -53,13 +66,13 @@
         <span id="middlebar"></span>
         <span id="bottombar"></span>
       </div>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+     <nav class="sidebar-nav" aria-label="sidebar navigation">
+          <a class="nav-btn" href="index.html">Home</a>
+          <a class="nav-btn" href="about.html">About</a>
+          <a class="nav-btn" href="projects.html">Projects</a>
+          <a class="nav-btn" href="contact.html">Contact</a>
+          <a class="nav-btn" href="blog.html">Blog</a>
+
       </nav>
     </div>
     <header>
@@ -94,18 +107,18 @@
   action="https://formspree.io/f/xeordzgj"
   method="POST"
 >
-<label>Name:
-  <input type="text" name="name" placeholder="Your name" required>
+<label for="name">Name:
 </label>
-<label>Email:
-  <input type="email" name="email" placeholder="Your email" required>
+  <input type="text" id="name" name="name" placeholder="Your name" required>
+<label for="email">Email:
 </label>
-<label>Message
-  <textarea name="message" minlength="50" placeholder="What`s your message" required></textarea>
+  <input type="email" id="email" name="email" placeholder="Your email" required>
+<label for="message">Message
 </label>
-  <button type="submit" id="formbtn">Send</button>
+  <textarea name="message" id="message" minlength="50" placeholder="What`s your message" required></textarea>
+  <button type="submit" class="btn btn-primary" id="formbtn">Send</button>
 </form>
-    <p>
+    <p class="text-sm muted text-centered">
       Scybud currently doesn’t operate any social media accounts.  
       All official communication happens through email and form only.
     </p>
@@ -116,44 +129,41 @@
        <div id="FromScybud">
 
         <h5>Also From Scybud</h5>
-        <div id="scybudApps">
-       
-        <a href="https://scyflix.github.io/RushSite/" target="_blank">
-          <div class="appcontainer">
-          <img
-            src="https://scyflix.github.io/RushSite/assets/RushSite%20logo.svg"
-            alt="RushSite Logo"
-            />
-            <span>RushSite</span>
-          </div>
-        </a>
-        <a href="https://trytasty.de/" target="_blank">
-          <div class="appcontainer">
-
-            <img
-            src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1756143298/export202508172154182910_eqqsko.avif"
-            alt="TryTasty Logo"
-            />
-            <span>TryTasty</span>
-          </div>
-        </a>
-        <a href="https://scyflix.github.io/Playbud/" target="_blank">
-         <div class="appcontainer">
-
-           <img
-             src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1757763602/ChatGPT_Image_Sep_13_2025_01_23_30_PM_gqilng.png"
-             alt="Playbud Logo"
-           />
-           <span>Playbud</span>
-         </div>
-        </a>
-        <a href="https://scyflix.github.io/Scybud-Labs/" target="_blank">
-         <div class="appcontainer">
-           <img
-             src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1750181306/My%20Brand/file_00000000610c6243beec099c93f3f4eb_wgtezq.png"
-             alt="Scybud Logo"
-             />
-             <span>Scybud</span>
+      <div id="scybudApps">
+          <a href="https://rushsite.scybud.com" target="_blank">
+            <div class="appcontainer">
+              <img
+                src="https://rushsite.scybud.com/RushSite/assets/RushSite%20logo.svg"
+                alt="RushSite Logo"
+              />
+              <span>RushSite</span>
+            </div>
+          </a>
+          <a href="https://trytasty.scybud.com/" target="_blank">
+            <div class="appcontainer">
+              <img
+                src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1756143298/export202508172154182910_eqqsko.avif"
+                alt="TryTasty Logo"
+              />
+              <span>TryTasty</span>
+            </div>
+          </a>
+          <a href="https://Abdulroqib123.github.io/Playbud/" target="_blank">
+            <div class="appcontainer">
+              <img
+                src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1757763602/ChatGPT_Image_Sep_13_2025_01_23_30_PM_gqilng.png"
+                alt="Playbud Logo"
+              />
+              <span>Playbud</span>
+            </div>
+          </a>
+          <a href="https://scybud.com" target="_blank">
+            <div class="appcontainer">
+              <img
+                src="assets/scybud-logo.png"
+                alt="Scybud Logo"
+              />
+              <span>Scybud</span>
             </div>
           </a>
         </div>
