@@ -160,7 +160,6 @@ summary:hover, .dropdownName:hover {
     justify-content: space-around;
   }
   .card {
-    width: 85vw;
     margin: var(--space-sm) auto;
   }
 }
