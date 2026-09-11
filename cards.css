@@ -9,9 +9,9 @@
   overflow-y: auto;
 }
 .card {
-margin: auto;
-min-width: 300px;
-width: 90%;
+  margin: auto;
+  min-width: 300px;
+  width: 90%;
 }
 .card,
 .project {
@@ -19,11 +19,13 @@ width: 90%;
   padding: var(--space-lg);
   border-radius: var(--radius-md);
   margin: var(--space-lg) auto;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .card:hover,
-.project:hover{
+.project:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 10px rgba(112, 112, 112, 0.25);
 }
@@ -49,18 +51,19 @@ width: 90%;
   color: var(--accent);
 }
 
-details, .dropdown {
+details,
+.dropdown {
   display: flex;
   flex-direction: column;
   position: fixed;
   top: 55px;
   right: var(--space-sm);
   padding: var(--space-sm) var(--space-sm);
-    background-color: var(--bg-secondary);
-    width: 250px;
-    max-width: 90%;
-    height: 35px;
-    max-height: fit-content;
+  background-color: var(--bg-secondary);
+  width: 250px;
+  max-width: 90%;
+  height: 35px;
+  max-height: fit-content;
   overflow: hidden;
   z-index: 1;
   margin: 0 auto;
@@ -88,13 +91,14 @@ details, .dropdown {
 .drop {
   height: 400px;
   overflow: auto;
-    scrollbar-width: thin;
+  scrollbar-width: thin;
 }
 .dropdown.drop .dropdownName::before {
   transform: rotate(180deg);
 }
 
-details a, .dropdown a {
+details a,
+.dropdown a {
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -105,29 +109,32 @@ details a, .dropdown a {
   border-radius: var(--radius-sm);
   padding: var(--space-xs);
 }
-details a:hover, .dropdown a:hover {
-    background-color: var(--active);
+details a:hover,
+.dropdown a:hover {
+  background-color: var(--active);
   color: var(--text-secondary);
 }
-summary, .dropdownName {
-    background-color: var(--bg-secondary);
+summary,
+.dropdownName {
+  background-color: var(--bg-secondary);
   border-radius: var(--radius-lg);
   padding: var(--space-xs) var(--space-sm);
   cursor: pointer;
   user-select: none;
 }
 #dropdownOpen {
-border: none;
-text-align: left;
-font-size: var(--text-md);
-padding: var(--space-sm);
-margin-bottom: var(--space-sm);
-color: var(--text-primary);
+  border: none;
+  text-align: left;
+  font-size: var(--text-md);
+  padding: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
 }
 #dropdownOpen:active {
   transform: scale(0.98);
 }
-summary:hover, .dropdownName:hover {
+summary:hover,
+.dropdownName:hover {
   background-color: var(--active);
 }
 
@@ -152,6 +159,7 @@ summary:hover, .dropdownName:hover {
     width: 90%;
   }
 }
+
 @media (max-width: 800px) {
   #cards {
     margin: var(--space-lg) auto;

@@ -1,6 +1,6 @@
-/* ================================
+/* 
    SCYBUD GLOBAL SYSTEM
-   ================================ */
+    */
 
 :root {
   /* Colors */
@@ -21,9 +21,9 @@
 }
 
 
-/* ================================
+/* 
    BASE ELEMENTS
-   ================================ */
+    */
 
 html,
 body {
@@ -50,13 +50,13 @@ a:hover {
   color: var(--accent-soft);
 }
 
-/* ================================
+/* 
    NAVIGATION
-   ================================ */
+    */
 
-/* ================================
+/* 
    DESKTOP HEADER (fixed)
-   ================================ */
+    */
 header {
   top: 0;
   background: var(--surface-secondary);
@@ -110,9 +110,9 @@ nav > ul > li {
     width: 100%;
   }
 }
-/* ================================
+/* 
    CONTAINERS
-   ================================ */
+    */
 #scyflix-video-preview {
   margin: 30px auto;
   display: flex;
@@ -140,9 +140,9 @@ main {
   box-shadow: var(--shadow);
 }
 
-/* ================================
+/* 
    HERO
-   ================================ */
+    */
 
 #hero {
   text-align: center;
@@ -178,9 +178,9 @@ blockquote img {
     animation: fadeIn 1s ease;
 
 }
-/* ================================
+/* 
    BUTTONS
-   ================================ */
+    */
 
 .btn,
 .button {
@@ -203,9 +203,9 @@ blockquote img {
   background: var(--primary-light);
 }
 
-/* ================================
+/* 
    FORMS
-   ================================ */
+    */
 
 form {
   background: var(--form-bg);
