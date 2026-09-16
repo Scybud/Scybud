@@ -65,6 +65,15 @@
     -->
 
     <style>
+
+      :root {
+  --loghue-blue: #1565C0;
+  --canvart-gradient: linear-gradient(to right, #ffd21f, #ff751f);
+  --scysearch-red: #df2935;
+  --zefeed-green: #00bf63;
+--scylearn-gradient: linear-gradient(90deg, #0085ff, #b0b0b0);
+}
+
         html {
   margin: 0;
   padding: 0;
@@ -130,6 +139,7 @@ nav > ul > li {
 }
 
 .hero {
+      min-height: 75dvh;
     display: grid;
     grid-template-columns: minmax(500px, 600px) 1fr;
     padding: var(--space-md) var(--space-md)var(--space-md) var(--space-xl);
@@ -149,6 +159,7 @@ line-height: 1;
 }
 .hero .cta {
     margin-top: var(--space-xl);
+    margin-bottom: 0;
 }
 .cta {
     text-decoration: none;
@@ -218,11 +229,60 @@ transition: background 0.3s ease;
 background: var(--surface-primary);
 border-radius: var(--radius-lg);
 max-width: 1200px;
-margin: var(--space-md) auto;
-    min-height: 80dvh;
-
+margin: var(--space-xl) auto;
+padding: calc(var(--space-xl) * 2) var(--space-md) var(--space-md);
+}
+h2 {
+  font-size: var(--text-4xl);
+  margin-bottom: 0;
+}
+p {
+  margin-top: var(--space-xs);
+  color: var(--muted);
 }
 
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: var(--space-lg);
+}
+.about-card {
+  padding: var(--space-md);
+  background: var(--surface-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: 5px 5px 15px var(--bg-primary);
+}
+
+.product-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: var(--space-lg);
+}
+.product-card {
+  padding: var(--space-md);
+  background: var(--surface-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: 5px 5px 15px var(--bg-primary);
+}
+.product-card a {
+  text-decoration: none;
+  display: inline-block;
+  color: var(--link);
+  background: var(--bg-secondary);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+  box-shadow: 5px 5px 5px #000000;
+  transition: box-shadow 0.4s ease;
+}
+.product-card a:hover {
+    box-shadow: 3px 3px 0 #000000;
+
+}
+#products .cta  {
+  display: block;
+  margin: var(--space-lg) auto;
+  
+}
 @media (max-width: 800px) {
   .hero {
     padding: var(--space-md);
@@ -292,9 +352,30 @@ max-width: 250px;
     cursor: pointer;
      margin: var(--space-md) 0;
   }
+
+
 }
 
+.loghue span {
+  color: var(--loghue-blue);
+}
+.canvart span {
+  background: var(--canvart-gradient);
+  background-clip: text;
+  color: transparent;
+}
+.zefeed span {
+  color: var(--zefeed-green);
+}
+.scysearch span {
+  color: var(--scysearch-red);
+}
 
+.scylearn span {
+    background: var(--scylearn-gradient);
+  background-clip: text;
+  color: transparent;
+}
 </style>
   </head>
   <body>
@@ -310,7 +391,7 @@ max-width: 250px;
             </ul>
         </nav>
 
-        <div id="menuIcon" onclick="togglesidebar()">
+        <div id="menuIcon" tabindex="1" role="button" aria-expanded="true" onclick="togglesidebar()">
         <span></span>
         <span></span>
         <span></span>
@@ -373,18 +454,77 @@ max-width: 250px;
        </article>
 
        <article id="about" class="section">
+<h2>Same Idea, Multiple Implementation</h2>
+<p>Everything built stands on a handful of pillars. Regardless of what it does.</p>
 
+<div class="about-cards">
+  <div class="about-card">
+    <h3>Build to Usability</h3>
+    <p>Main priority is to build tools to a usable product first</p>
+  </div>
+  <div class="about-card">
+    <h3>Test and Polish</h3>
+    <p>After its ussable, we test and fix mistakes and bugs</p>
+  </div>
+  <div class="about-card">
+    <h3>Collect Feedback</h3>
+    <p>We monitor usage and ask users what they need</p>
+  </div>
+  <div class="about-card">
+    <h3>Improve</h3>
+    <p>We use feedback to improve the service for users.</p>
+  </div>
+</div>
        </article>
 
-       <article id="products" class="section"></article>
+       <article id="products" class="section">
+        <h2>Live Products</h2>
+        <p>A few of what we've shipped. Each started small and grew with users feedback.</p>
 
-       <article id="studio" class="section"></article>
+        <div class="product-cards">
+          <div class="product-card">
+            <h3 class="loghue">Log<span>Hue</span></h3>
+            <p>LogHue keeps your notes, tasks, and workspaces organized without forcing them into one giant document or scattering them across five different apps. Write freely, connect things when it actually helps, and find anything in seconds with search.</p>
+
+            <a href="https://loghue.com" target="_blank" rel="noopener noreferrer">loghue.com</a>
+          </div>
+
+          <div class="product-card">
+            <h3 class="zefeed">Ze<span>Feed</span></h3>
+            <p>ZeFeed delivers bite-sized tech news summaries sourced from leading publishers, helping users stay informed faster.</p>
+
+            <a href="https://zefeed.scybud.com" target="_blank" rel="noopener noreferrer">zefeed.scybud.com</a>
+          </div>
+
+          <div class="product-card">
+            <h3 class="logo">Scy<span>bud</span> UI</h3>
+            <p>Scybud UI is a reusable frontend design system with components, styles, and utilities used across Scybud products to ensure consistent, dark-first user interfaces.</p>
+
+            <a href="https://ui.scybud.com" target="_blank" rel="noopener noreferrer">ui.scybud.com</a>
+          </div>
+
+
+          <div class="product-card">
+            <h3 class="scylearn">Scy<span>Learn</span></h3>
+            <p>ScyLearn hosts documentation for the fundamentals, currently covering HTML and CSS, with more guides planned as Scybud grows.</p>
+
+            <a href="https://learn.scybud.com" target="_blank" rel="noopener noreferrer">learn.scybud.com</a>
+          </div>
+        </div>
+
+        <a href="projects.html" class="cta">See all porducts</a>
+       </article>
+
+       <article id="studio" class="section">
+        
+       </article>
 
        <article id="contact" class="section"></article>
      </main>
 
-      <p>&copy; scybud | All rights reserved</p>
-    </footer>
+ <footer>
+  <p>&copy; scybud | All rights reserved</p>
+</footer>
     <script>
       const nav = document.querySelector(".nav");
 
