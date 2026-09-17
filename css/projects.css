@@ -1,0 +1,113 @@
+/* page title */
+main.container h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  line-height: 1.1;
+  margin: calc(var(--space-xl) * 2) 0 var(--space-md);
+  color: var(--text-primary);
+}
+
+/* "Personal & learning projects" section heading */
+#other-projects > h2 {
+  grid-column: 1 / -1;
+  font-size: var(--text-4xl);
+  margin: 0 0 var(--space-xs);
+  color: var(--text-primary);
+}
+#other-projects > h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: var(--radius-lg);
+  margin-top: var(--space-xs);
+}
+
+/* lay the project cards out in a grid, same rhythm as .product-cards */
+#other-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+/* each .project block styled like a card */
+.project {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md);
+  background: var(--surface-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: 5px 5px 15px var(--bg-primary);
+}
+.project h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0;
+}
+.project h2 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.project h2 a:hover {
+  color: var(--primary-light);
+}
+.project p {
+  margin-top: var(--space-xs);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.project p span {
+  color: var(--text-secondary);
+  font-weight: var(--font-bold);
+}
+.project p a {
+  color: var(--link);
+  text-decoration: underline;
+}
+.project .btn {
+  text-decoration: none;
+  display: inline-block;
+  color: var(--link);
+  background: var(--bg-secondary);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+  box-shadow: 5px 5px 5px #000000;
+  transition: box-shadow 0.4s ease;
+  margin-top: auto;
+  width: fit-content;
+}
+.project .btn:hover { box-shadow: 3px 3px 0 #000000; }
+.project .btn:active { box-shadow: none; }
+
+/* experiments list needs its own layout since it's a bare <ul>, not paragraphs */
+#experiments {
+  grid-column: 1 / -1;
+}
+#experiments ul {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--space-md);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-xs) var(--space-md);
+}
+#experiments li {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border-secondary);
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+#experiments li a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+#experiments li a:hover {
+  color: var(--primary-light);
+}
+
+@media (max-width: 800px) {
+  main.container h1 { font-size: 2.2rem; }
+  #other-projects { grid-template-columns: 1fr; }
+}

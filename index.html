@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <link
@@ -10,15 +10,7 @@
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-5J3R5GPKQX"
     ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-5J3R5GPKQX");
-    </script>
+    
     <meta charset="UTF-8" />
     <meta
       name="description"
@@ -49,135 +41,395 @@
     <meta name="author" content="Abdulroqib Oladipo" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scybud | Where idea grows</title>
+    <link rel="stylesheet" href="https://ui.scybud.com/css/variables.css" />
     <link
-  rel="stylesheet"
-  href="https://ui.scybud.com/css/variables.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://ui.scybud.com/components/buttons/nav-buttons.css"
-/>
+      rel="stylesheet"
+      href="https://ui.scybud.com/components/buttons/nav-buttons.css"
+    />
 
-    <link rel="stylesheet" href="sidebar.css" />
+    <!--
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="sidebar.css" />
     <link rel="stylesheet" href="cards.css" />
+    -->
 
-    <style>
-      #sidebarContainer {
-        background-color: rgb(0, 0, 0);
-        width: 100vw;
-        height: 100dvh;
-      }
-    </style>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/cards.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/buttons.css">
   </head>
   <body>
-      <div id="sidebar">
-        <div id="cancelIcon" onclick="togglesidebar()">
-        <span id="topbar"></span>
-        <span id="middlebar"></span>
-        <span id="bottombar"></span>
-      </div>
-      <nav class="sidebar-nav" aria-label="sidebar navigation">
-          <a class="nav-btn" href="index.html">Home</a>
-          <a class="nav-btn" href="about.html">About</a>
-          <a class="nav-btn" href="projects.html">Projects</a>
-          <a class="nav-btn" href="contact.html">Contact</a>
-          <a class="nav-btn" href="blog.html">Blog</a>
+    <header class="header">
+      <a href="https://scybud.com" class="logo">Scy<span>bud</span></a>
 
-      </nav>
-    </div>
-    <header>
-      <div id="menuIcon" onclick="togglesidebar()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav aria-label="Main navigation">
+      <nav class="nav">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#studio">Studio</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-    </header>
-    <main>
-      <h1 id="welcome-message">Software, built in the open.</h1>
-      <section id="hero">
-        <p>
-          Scybud is a student led studio started by
-          <a href="about.html#aboutFounder">Abdulroqib Oladipo</a>. It's the
-          umbrella for every product built under it, from finished apps to
-           experiments still worth sharing.
-        </p>
-        <p>
-          The goal isn't a portfolio. It's a running record of what gets
-          built, what gets learned, and what gets shipped next, tech, art,
-          or whatever the project calls for.
-        </p>
 
-        
-        <section id="tags">
-          <div class="tag">
-            <p><span>5+ Projects</span></p>
-          </div>
-          <div class="tag">
-            <p><span>15+ Experiments</span></p>
-          </div>
-          <div class="tag">
-            <p>Since <span>2025</span></p>
-          </div>
-        </section>
-      </section>
-    </main>
-    <footer>
-       <div id="FromScybud">
-
-        <h5>Also From Scybud</h5>
-        <div id="scybudApps">
-          <a href="https://rushsite.scybud.com" target="_blank">
-            <div class="appcontainer">
-              <img
-                src="https://rushsite.scybud.com/RushSite/assets/RushSite%20logo.svg"
-                alt="RushSite Logo"
-              />
-              <span>RushSite</span>
-            </div>
-          </a>
-          <a href="https://trytasty.scybud.com/" target="_blank">
-            <div class="appcontainer">
-              <img
-                src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1756143298/export202508172154182910_eqqsko.avif"
-                alt="TryTasty Logo"
-              />
-              <span>TryTasty</span>
-            </div>
-          </a>
-          <a href="https://Abdulroqib123.github.io/Playbud/" target="_blank">
-            <div class="appcontainer">
-              <img
-                src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1757763602/ChatGPT_Image_Sep_13_2025_01_23_30_PM_gqilng.png"
-                alt="Playbud Logo"
-              />
-              <span>Playbud</span>
-            </div>
-          </a>
-          <a href="https://scybud.com" target="_blank">
-            <div class="appcontainer">
-              <img
-                src="assets/scybud-logo.png"
-                alt="Scybud Logo"
-              />
-              <span>Scybud</span>
-            </div>
-          </a>
-        </div>
+      <div
+        id="menuIcon"
+        tabindex="1"
+        role="button"
+        aria-expanded="true"
+        onclick="togglesidebar()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <hr />
+    </header>
 
-      <p>&copy; scybud | All rights reserved</p>
-    </footer>
-    <script src="main.js"></script>
+    <main class="main">
+      <article class="section hero">
+        <section class="left-section">
+          <h1 class="hero-header">
+            Builder
+            <br />
+            And
+            <br />
+            Learner
+            <br />
+            <span>Studio.</span>
+          </h1>
+          <p>
+            We build and improve as we go. Each project built with the users in
+            mind.
+          </p>
+
+          <a href="#products" class="cta">Discover tools</a>
+        </section>
+
+        <section class="right-section">
+          <span class="scybud-com">scybud.com</span>
+
+          <h2>SCYBUD</h2>
+
+          <svg
+            class="node-tree"
+            viewBox="0 0 400 220"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle class="node-root-dot" cx="200" cy="10" r="4" />
+
+            <line x1="200" y1="14" x2="90" y2="74" />
+            <line x1="200" y1="14" x2="200" y2="74" />
+            <line x1="200" y1="14" x2="310" y2="74" />
+
+            <rect
+              class="node-box"
+              x="45"
+              y="76"
+              width="90"
+              height="34"
+              rx="20"
+            />
+            <text class="node-label" x="90" y="97" text-anchor="middle">
+              LogHue
+            </text>
+
+            <rect
+              class="node-box"
+              x="155"
+              y="76"
+              width="90"
+              height="34"
+              rx="20"
+            />
+            <text class="node-label" x="200" y="97" text-anchor="middle">
+              ZeFeed
+            </text>
+
+            <rect
+              class="node-box"
+              x="265"
+              y="76"
+              width="90"
+              height="34"
+              rx="20"
+            />
+            <text class="node-label" x="310" y="97" text-anchor="middle">
+              CanvArt
+            </text>
+
+            <line x1="90" y1="110" x2="65" y2="134" />
+            <line x1="200" y1="110" x2="200" y2="134" />
+            <line x1="310" y1="110" x2="335" y2="134" />
+
+            <rect
+              class="node-box"
+              x="20"
+              y="136"
+              width="90"
+              height="34"
+              rx="20"
+            />
+            <text class="node-label" x="65" y="157" text-anchor="middle">
+              Rushsite
+            </text>
+
+            <rect
+              class="node-box"
+              x="155"
+              y="136"
+              width="90"
+              height="34"
+              rx="20"
+            />
+            <text class="node-label" x="200" y="157" text-anchor="middle">
+              DakAt
+            </text>
+
+            <rect
+              class="node-box"
+              x="290"
+              y="136"
+              width="90"
+              height="34"
+              rx="20"
+            />
+            <text class="node-label" x="335" y="157" text-anchor="middle">
+              TryTasty
+            </text>
+          </svg>
+        </section>
+      </article>
+
+      <article id="about" class="section">
+        <h2>Same Idea, Multiple Implementation</h2>
+        <p>
+          Everything built stands on a handful of pillars. Regardless of what it
+          does.
+        </p>
+
+        <div class="about-cards">
+          <div class="about-card">
+            <h3>Build to Usability</h3>
+            <p>Main priority is to build tools to a usable product first</p>
+          </div>
+          <div class="about-card">
+            <h3>Test and Polish</h3>
+            <p>After its ussable, we test and fix mistakes and bugs</p>
+          </div>
+          <div class="about-card">
+            <h3>Collect Feedback</h3>
+            <p>We monitor usage and ask users what they need</p>
+          </div>
+          <div class="about-card">
+            <h3>Improve</h3>
+            <p>We use feedback to improve the service for users.</p>
+          </div>
+        </div>
+      </article>
+
+      <article id="products" class="section">
+        <h2>Live Products</h2>
+        <p>
+          A few of what we've shipped. Each started small and grew with users
+          feedback.
+        </p>
+
+        <div class="product-cards">
+          <div class="product-card">
+            <h3 class="loghue">Log<span>Hue</span></h3>
+            <p>
+              LogHue keeps your notes, tasks, and workspaces organized without
+              forcing them into one giant document or scattering them across
+              five different apps. Write freely, connect things when it actually
+              helps, and find anything in seconds with search.
+            </p>
+
+            <a
+              href="https://loghue.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >loghue.com</a
+            >
+          </div>
+
+          <div class="product-card">
+            <h3 class="zefeed">Ze<span>Feed</span></h3>
+            <p>
+              ZeFeed delivers bite-sized tech news summaries sourced from
+              leading publishers, helping users stay informed faster.
+            </p>
+
+            <a
+              href="https://zefeed.scybud.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >zefeed.scybud.com</a
+            >
+          </div>
+
+          <div class="product-card">
+            <h3 class="logo">Scy<span>bud</span> UI</h3>
+            <p>
+              Scybud UI is a reusable frontend design system with components,
+              styles, and utilities used across Scybud products to ensure
+              consistent, dark-first user interfaces.
+            </p>
+
+            <a
+              href="https://ui.scybud.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >ui.scybud.com</a
+            >
+          </div>
+
+          <div class="product-card">
+            <h3 class="scylearn">Scy<span>Learn</span></h3>
+            <p>
+              ScyLearn hosts documentation for the fundamentals, currently
+              covering HTML and CSS, with more guides planned as Scybud grows.
+            </p>
+
+            <a
+              href="https://learn.scybud.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >learn.scybud.com</a
+            >
+          </div>
+        </div>
+
+        <a href="projects.html" class="cta">See all porducts</a>
+      </article>
+
+      <article id="studio" class="section">
+        <div class="studio-left">
+          <h2>We can build yours too</h2>
+          <p>
+            Scybud started as products built for ourselves. The studio part
+            takes outside work too. Same idea, built to work for you.
+          </p>
+
+          <a href="#contacts" class="cta">Start a project</a>
+        </div>
+
+        <div class="studio-right">
+          <div class="what-we-build">
+            <span class="dot"></span>
+            <p>Web apps and dashbaords</p>
+          </div>
+
+          <div class="what-we-build">
+            <span class="dot"></span>
+            <p>Clean landing pages and marketing sites</p>
+          </div>
+
+          <div class="what-we-build">
+            <span class="dot"></span>
+            <p>Product MVPs, built to launch</p>
+          </div>
+
+          <div class="what-we-build">
+            <span class="dot"></span>
+            <p>Responsiveness and structured design systems</p>
+          </div>
+          
+        </div>
+      </article>
+
+      <article id="contact" class="section">
+        
+        <div class="contact-left">
+        <h2>Get in touch</h2>
+<p>Question, collaboration, or studio work. One message reaches the whole team.</p>
+
+<div class="links">
+  <a href="mailto:hello@scybud.com">hello@scybud.com</a>
+  <a href="https://github.com/abdulroqib123" target="_blank" rel="noopener noreferrer">github.com/abdulroqib123</a>
+  <a href="https://scybud.com/scyflix" target="_blank" rel="noopener noreferrer">Scyflix on social</a>
+</div>
+        </div>
+        
+
+        <div class="contact-right">
+          <form action="">
+            <label>
+            Email:
+            <input type="email" name="Email" id="email" placeholder="Your email">
+            </label>
+
+            <label>
+              Message:
+              <textarea name="Message" id="message" placeholder="Your message"></textarea>
+            </label>
+
+            <button type="submit" class="cta">Send message</button>
+          </form>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+  <p>&copy; scybud | All rights reserved</p>
+  <button id="cookieSettings" class="cookie-settings-link">Cookie settings</button>
+</footer>
+
+    <div id="consentOverlay" class="consent-overlay" hidden>
+  <div class="consent-modal" role="dialog" aria-modal="true" aria-labelledby="consentTitle">
+    <h3 id="consentTitle">Allow analytics?</h3>
+    <p>We'd like to use Google Analytics to see how the site is used. No data goes toward ads, and you can change this anytime by clearing site data.</p>
+    <div class="consent-actions">
+      <button class="consent-accept" id="consentAccept">Allow</button>
+      <button class="consent-decline" id="consentDecline">Decline</button>
+    </div>
+  </div>
+</div>
+
+
+  <script>
+  const CONSENT_KEY = 'scybud-analytics-consent';
+
+  function loadAnalytics() {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-5J3R5GPKQX');
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5J3R5GPKQX';
+    document.head.appendChild(script);
+  }
+
+  const overlay = document.getElementById('consentOverlay');
+  const stored = localStorage.getItem(CONSENT_KEY);
+
+  document.getElementById('cookieSettings').addEventListener('click', () => {
+  overlay.hidden = false;
+});
+
+  if (stored === 'granted') {
+    loadAnalytics();
+  } else if (stored !== 'denied') {
+    overlay.hidden = false;
+  }
+
+  document.getElementById('consentAccept').addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, 'granted');
+    overlay.hidden = true;
+    loadAnalytics();
+  });
+
+  document.getElementById('consentDecline').addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, 'denied');
+    overlay.hidden = true;
+  });
+
+  const nav = document.querySelector(".nav");
+  function togglesidebar() {
+    nav.classList.toggle("show");
+  }
+</script>
   </body>
 </html>

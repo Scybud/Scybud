@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="canonical"
+      href="https://scyflix.github.io/Scybud-Labs/index.html"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-5J3R5GPKQX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-5J3R5GPKQX");
+    </script>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Scybud is a student led studio building software products in the open. Explore what's been built, what's in progress, and how it started."
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <meta
+      name="keywords"
+      content="Scybud, indie studio, student developer, software products"
+    />
+    <meta name="author" content="Abdulroqib Oladipo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scybud | Where idea grows</title>
+    <link
+  rel="stylesheet"
+  href="https://ui.scybud.com/css/variables.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://ui.scybud.com/components/buttons/nav-buttons.css"
+/>
+
+    <link rel="stylesheet" href="sidebar.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="cards.css" />
+
+    <style>
+      #sidebarContainer {
+        background-color: rgb(0, 0, 0);
+        width: 100vw;
+        height: 100dvh;
+      }
+    </style>
+  </head>
+  <body>
+      <div id="sidebar">
+        <div id="cancelIcon" onclick="togglesidebar()">
+        <span id="topbar"></span>
+        <span id="middlebar"></span>
+        <span id="bottombar"></span>
+      </div>
+      <nav class="sidebar-nav" aria-label="sidebar navigation">
+          <a class="nav-btn" href="index.html">Home</a>
+          <a class="nav-btn" href="about.html">About</a>
+          <a class="nav-btn" href="projects.html">Projects</a>
+          <a class="nav-btn" href="contact.html">Contact</a>
+          <a class="nav-btn" href="blog.html">Blog</a>
+
+      </nav>
+    </div>
+    <header>
+      <div id="menuIcon" onclick="togglesidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1 id="welcome-message">Software, built in the open.</h1>
+      <section id="hero">
+        <p>
+          Scybud is a student led studio started by
+          <a href="about.html#aboutFounder">Abdulroqib Oladipo</a>. It's the
+          umbrella for every product built under it, from finished apps to
+           experiments still worth sharing.
+        </p>
+        <p>
+          The goal isn't a portfolio. It's a running record of what gets
+          built, what gets learned, and what gets shipped next, tech, art,
+          or whatever the project calls for.
+        </p>
+
+        
+        <section id="tags">
+          <div class="tag">
+            <p><span>5+ Projects</span></p>
+          </div>
+          <div class="tag">
+            <p><span>15+ Experiments</span></p>
+          </div>
+          <div class="tag">
+            <p>Since <span>2025</span></p>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer>
+       <div id="FromScybud">
+
+        <h5>Also From Scybud</h5>
+        <div id="scybudApps">
+          <a href="https://rushsite.scybud.com" target="_blank">
+            <div class="appcontainer">
+              <img
+                src="https://rushsite.scybud.com/RushSite/assets/RushSite%20logo.svg"
+                alt="RushSite Logo"
+              />
+              <span>RushSite</span>
+            </div>
+          </a>
+          <a href="https://trytasty.scybud.com/" target="_blank">
+            <div class="appcontainer">
+              <img
+                src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1756143298/export202508172154182910_eqqsko.avif"
+                alt="TryTasty Logo"
+              />
+              <span>TryTasty</span>
+            </div>
+          </a>
+          <a href="https://Abdulroqib123.github.io/Playbud/" target="_blank">
+            <div class="appcontainer">
+              <img
+                src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1757763602/ChatGPT_Image_Sep_13_2025_01_23_30_PM_gqilng.png"
+                alt="Playbud Logo"
+              />
+              <span>Playbud</span>
+            </div>
+          </a>
+          <a href="https://scybud.com" target="_blank">
+            <div class="appcontainer">
+              <img
+                src="assets/scybud-logo.png"
+                alt="Scybud Logo"
+              />
+              <span>Scybud</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <hr />
+
+      <p>&copy; scybud | All rights reserved</p>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>

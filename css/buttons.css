@@ -1,0 +1,30 @@
+.cta {
+        text-decoration: none;
+        color: #000;
+        background: var(--primary);
+        display: inline-block;
+        padding: var(--space-md) var(--space-xl);
+        border-radius: var(--radius-lg);
+        font-weight: var(--font-bold);
+        max-width: fit-content;
+        transition: background 0.3s ease;
+      }
+      .cta:hover {
+        background: var(--primary-light);
+      }
+
+      button.cta {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  align-self: flex-start;
+  box-shadow: 5px 5px 5px #000000;
+  transition: box-shadow 0.4s ease, background 0.4s ease;
+}
+button.cta:hover {
+        box-shadow: 3px 3px 0 #000000;
+      }
+button.cta:active {
+        box-shadow: none;
+      }
