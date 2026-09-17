@@ -290,7 +290,6 @@
         grid-template-columns: minmax(400px, 500px) 1fr;
         gap: var(--space-md);
         min-height: 60dvh;
-        align-items: center;
       }
       .studio-right {
         display: flex;
@@ -298,6 +297,14 @@
         gap: var(--space-sm);
         margin-top: var(--space-lg);
       }
+      .studio-left {
+        display: flex;
+        flex-direction: column;
+      }
+      .studio-left .cta {
+        margin-top: calc(var(--space-lg) * 2);
+      }
+
       .what-we-build {
         border-bottom: 1px solid var(--border-secondary);
       }
@@ -680,7 +687,34 @@
         </div>
       </article>
 
-      <article id="contact" class="section"></article>
+      <article id="contact" class="section">
+        
+        <div class="contact-left">
+        <h2>Get in touch</h2>
+<p>Question, collaboration, or studio work. One message reaches the whole team.</p>
+
+<div class="links">
+  <a href="mailto:hello@scybud.com">hello@scybud.com</a>
+  <a href="https://github.com/abdulroqib123" target="_blank" rel="noopener noreferrer">github.com/abdulroqib123</a>
+  <a href="https://scybud.com/scyflix" target="_blank" rel="noopener noreferrer">Scyflix on social</a>
+</div>
+        </div>
+        
+
+        <div class="contact-right">
+          <form action="">
+            <label>
+            Email:
+            <input type="email" name="Email" id="email" placeholder="Your email">
+            </label>
+
+            <label>
+              Message:
+              <textarea name="Message" id="message" placeholder="Your message"></textarea>
+            </label>
+          </form>
+        </div>
+      </article>
     </main>
 
     <footer>
