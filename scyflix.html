@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Scyflix, Abdulroqib's build-in-public brand. Follow along on social." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scyflix</title>
+
+    <link rel="stylesheet" href="https://ui.scybud.com/css/variables.css" />
+    <link rel="stylesheet" href="https://ui.scybud.com/components/buttons/nav-buttons.css" />
+
+    <style>
+      html { margin: 0; padding: 0; }
+      body {
+        font-family: "Open Sans", sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: var(--space-md);
+      }
+
+      .scyflix-card {
+        width: 100%;
+        max-width: 420px;
+        background: var(--surface-primary);
+        border-radius: var(--radius-lg);
+        padding: calc(var(--space-xl) * 1.5) var(--space-lg) var(--space-lg);
+        text-align: center;
+      }
+
+      .scyflix-avatar {
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        background: var(--surface-secondary);
+        margin: 0 auto var(--space-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: var(--font-bold);
+        font-size: 1.6rem;
+        color: var(--primary);
+      }
+
+      h1 {
+        margin-bottom: 0;
+        font-size: 1.8rem;
+      }
+
+      .tagline {
+        margin-top: var(--space-xs);
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        margin-top: var(--space-xl);
+      }
+
+      .social-link {
+        text-decoration: none;
+        color: var(--text-primary);
+        background: var(--surface-secondary);
+        border: 1px solid var(--border-primary);
+        border-radius: var(--radius-lg);
+        padding: var(--space-md);
+        font-weight: var(--font-bold);
+        transition: border-color 0.3s ease, background 0.3s ease;
+      }
+      .social-link:hover {
+        border-color: var(--primary);
+        background: var(--surface-primary);
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-top: var(--space-lg);
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+      }
+      .back-link:hover { color: var(--text-primary); }
+    </style>
+  </head>
+  <body>
+    <div class="scyflix-card">
+      <div class="scyflix-avatar">SF</div>
+      <h1>Scyflix</h1>
+      <p class="tagline">Documenting the build. In public.</p>
+
+      <div class="social-links">
+        <a class="social-link" href="https://tiktok.com/@scyflix" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a class="social-link" href="https://x.com/scyflix" target="_blank" rel="noopener noreferrer">X</a>
+        <a class="social-link" href="https://instagram.com/scyflix5855" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="social-link" href="https://youtube.com/@scyflix5855" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+
+      <a class="back-link" href="https://scybud.com">&larr; Back to Scybud</a>
+    </div>
+  </body>
+</html>
