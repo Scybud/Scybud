@@ -52,7 +52,7 @@
   stroke: var(--border-primary);
   stroke-width: 1;
   transition: stroke 0.5s ease;
-  animation: glow 10s ease alternate infinite;
+  animation: glow 5s ease alternate infinite;
 }
 @keyframes glow {
   0% {
