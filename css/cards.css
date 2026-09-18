@@ -75,6 +75,11 @@
   margin-right: var(--space-xs);
   transition: all 0.5s ease;
 }
+.drop {
+  height: 400px;
+  overflow: auto;
+  scrollbar-width: thin;
+}
 .drop::-webkit-scrollbar {
   width: 4px;
 }
@@ -87,11 +92,6 @@
   background: var(--surface-secondary);
   border-radius: 999px;
 }
-.drop {
-  height: 400px;
-  overflow: auto;
-  scrollbar-width: thin;
-}
 .dropdown.drop .dropdownName::before {
   transform: rotate(180deg);
 }
@@ -103,9 +103,9 @@
   justify-content: center;
   color: var(--muted);
   text-decoration: none;
-  margin: 2px;
+  margin: 0 2px;
   border-radius: var(--radius-sm);
-  padding: var(--space-xs);
+  padding: var(--space-sm);
 }
 .dropdown a:hover {
   background-color: var(--active);
