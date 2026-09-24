@@ -1,146 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Credit Card</title>
-    <style>
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, Helvetica, sans-serif;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credit Card | Scybud</title>
+
+  <!-- Scybud UI Core -->
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/variables.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/typography.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/layout.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/animations.css" />
+
+  <!-- Scybud UI Components -->
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/components/buttons/global-buttons.css" />
+
+  <style>
+    /* Page shell using Scybud tokens */
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-primary);
+    }
+
+    .top-bar {
+      position: absolute;
+      top: var(--space-lg);
+      left: var(--space-lg);
+      z-index: 10;
+    }
+
+    /* === Essential mockup styles (kept + lightly refined) === */
+    .cardContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100dvh;
+    }
+
+    .card {
+      /* Refined gradient using Scybud surface colors */
+      background: linear-gradient(135deg, var(--bg-primary), var(--surface-primary), var(--surface-secondary));
+      width: 500px;
+      height: 250px;
+      color: var(--text-primary);
+      border-radius: var(--radius-md);
+      position: relative;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      transition: transform 0.7s ease;
+      transform: skew(-20deg);
+      border: 1px solid var(--border-primary);
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform:skew(0);
+    }
+
+    .cardHeader {
+      margin: 0 0 0 16px;
+      opacity: 0.9;
+      font-weight: var(--font-bold);
+    }
+
+    .cardHeader h1 {
+      font-size: var(--text-xl);
+      margin: 12px 0 0 0;
+      color: var(--text-primary);
+    }
+
+    .chip {
+      position: absolute;
+      left: 16px;
+      top: 55px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+      width: 50px;
+      height: 40px;
+      box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+    }
+
+    .cardNumber {
+      font-size: 1em;
+      position: absolute;
+      top: 120px;
+      left: 16px;
+      text-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .cardNumber h2 {
+      letter-spacing: 4px;
+      display: flex;
+      gap: 16px;
+      margin: 0;
+      font-family: var(--font-mono);
+      font-weight: var(--font-medium);
+      font-size: var(--text-lg);
+      color: var(--text-primary);
+    }
+
+    .cardDate {
+      position: absolute;
+      bottom: 45px;
+      right: 40px;
+    }
+
+    .cardDate h3 {
+      margin: 0;
+      font-size: var(--text-md);
+      font-weight: var(--font-medium);
+      color: var(--text-secondary);
+    }
+
+    #visa span {
+      font-size: 3.5em;
+      font-weight: 900;
+      letter-spacing: -2px;
+      opacity: 0.9;
+      position: absolute;
+      bottom: 8px;
+      right: 20px;
+      color: var(--text-primary);
+      font-family: var(--font-primary);
+    }
+
+    #linesContainer {
+      display: flex;
+      gap: 70px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .lines {
+      background: #ffffff;
+      width: 100%;
+      height: 4px;
+      opacity: 0.08;
+    }
+
+    .lineup {
+      animation: godown 1s linear infinite;
+    }
+
+    .lineup:nth-child(1) { animation-delay: 0.5s; }
+    .lineup:nth-child(2) { animation-delay: 1s; }
+    .lineup:nth-child(3) { animation-delay: 1.5s; }
+    .lineup:nth-child(4) { animation-delay: 2s; }
+    .lineup:nth-child(5) { animation-delay: 2.5s; }
+
+    @keyframes godown {
+      from {
+        transform: translateY(-80px) rotate(90deg);
       }
+      to {
+        transform: translateY(250px) rotate(90deg);
+      }
+    }
+
+    @media (max-width: 600px) {
       .cardContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100vw;
-        height: 100dvh;
+        width: 90dvw;
+        margin: 0 auto;
       }
       .card {
-        background: linear-gradient(135deg, #0a0a0a, #1c1c1c, #3a3a3a);
-        width: 500px;
-        height: 250px;
-        color: aliceblue;
-        border-radius: 12px;
-        position: relative;
-        box-shadow: 0 0 15px #070707;
-        transition: transform 0.7s ease;
-        transform: skew(-20deg);
-      }
-      .card:hover {
-        transform: scale(1.05);
-      }
-      .cardHeader {
-        margin: 0 0 0 16px;
-        opacity: 0.9;
-      }
-      .chip {
-        position: absolute;
-        left: 10px;
-        border-radius: 5px;
-        background: rgb(241, 241, 241);
-        width: 50px;
-        height: 40px;
-      }
-      .cardNumber {
-        font-size: 1em;
-        position: absolute;
-        top: 120px;
-        left: 10px;
-        text-shadow: 0 0 10px #898888;
+        width: 90%;
+        max-width: 400px;
+        height: 200px;
       }
       .cardNumber h2 {
-        letter-spacing: 4px;
-        display: flex;
-        gap: 16px;
-      }
-
-      .cardDate {
-        position: absolute;
-        bottom: 45px;
-        right: 40px;
-
+        font-size: var(--text-md);
+        gap: 10px;
       }
       #visa span {
-        font-size: 4em;
-        font-weight: 900;
-        letter-spacing: -2px;
-        opacity: 0.9;
-        position: absolute;
-        bottom: 0;
-        right: 20px;
+        font-size: 2.8em;
       }
-      #linesContainer {
-        display: flex;
-        gap: 70px;
-      }
-      .lines {
-        background: #ffffff;
-        width: 100%;
-        height: 4px;
-        opacity: 0.1;
-        backdrop-filter: blur(70px);
-      }
-      .lineup {
-        animation: godown 1s linear infinite;
-      }
-      .lineup:nth-child(1) {
-        animation-delay: 0.5s;
-      }
-      .lineup:nth-child(2) {
-        animation-delay: 1s;
-      }
-      .lineup:nth-child(3) {
-        animation-delay: 1.5s;
-      }
-      .lineup:nth-child(4) {
-        animation-delay: 2s;
-      }
-      .lineup:nth-child(5) {
-        animation-delay: 2.5s;
-      }
-      @keyframes godown {
-        from {
-          transform: translateY(-80px) rotate(90deg);
-        }
-        to {
-          transform: translateY(250px) rotate(90deg);
-        }
-      }
-      @media (max-width: 600px) {
-        .cardContainer {
-          width: 90dvw;
-          margin: 0 auto;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <section class="cardContainer">
-      <div class="card">
-        <div class="cardHeader"><h1>Scypay</h1></div>
-        <div class="chip"></div>
-        <div id="linesContainer">
-          <div class="lines lineup"></div>
-          <div class="lines lineup"></div>
-          <div class="lines lineup"></div>
-          <div class="lines lineup"></div>
-          <div class="lines lineup"></div>
-        </div>
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="index.html" class="btn btn-primary">← Home</a>
+  </div>
 
-        <div class="cardNumber">
-          <h2>
-            <span>5000</span> <span>5377</span> <span>9286</span>
-            <span>2849</span>
-          </h2>
-        </div>
-        <div class="cardDate"><h3>08/29</h3></div>
-        <div id="visa">
-          <span>Visa</span>
-        </div>
+  <section class="cardContainer">
+    <div class="card">
+      <div class="cardHeader"><h1>Scypay</h1></div>
+      <div class="chip"></div>
+
+      <div id="linesContainer">
+        <div class="lines lineup"></div>
+        <div class="lines lineup"></div>
+        <div class="lines lineup"></div>
+        <div class="lines lineup"></div>
+        <div class="lines lineup"></div>
       </div>
-    </section>
-  </body>
+
+      <div class="cardNumber">
+        <h2>
+          <span>5000</span>
+          <span>5377</span>
+          <span>9286</span>
+          <span>2849</span>
+        </h2>
+      </div>
+
+      <div class="cardDate"><h3>08/29</h3></div>
+
+      <div id="visa">
+        <span>Visa</span>
+      </div>
+    </div>
+  </section>
+</body>
 </html>

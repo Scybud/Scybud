@@ -1,62 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css" />
-    <style>
-      section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        margin: 10px;
-        flex-direction: column;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multiplication Table | Scybud</title>
+
+  <!-- Scybud UI Core -->
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/variables.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/typography.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/layout.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/animations.css" />
+
+  <!-- Scybud UI Components -->
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/components/buttons/global-buttons.css" />
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--space-lg);
+      box-sizing: border-box;
+    }
+
+    .top-bar {
+      width: 100%;
+      max-width: 480px;
+      margin-bottom: var(--space-lg);
+    }
+
+    main {
+      width: 100%;
+      max-width: 480px;
+      background: var(--surface-primary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl) var(--space-lg);
+      box-shadow: var(--shadow);
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    h1 {
+      margin: 0 0 var(--space-md);
+      font-size: var(--text-2xl);
+      font-weight: var(--font-bold);
+      text-align: center;
+      color: var(--text-primary);
+    }
+
+    input[type="number"] {
+      width: 100%;
+      max-width: 280px;
+      height: 44px;
+      padding: 0 var(--space-md);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-primary);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-size: var(--text-md);
+      font-family: var(--font-mono);
+      outline: none;
+      transition: border-color var(--transition-fast);
+      box-sizing: border-box;
+    }
+
+    input[type="number"]:focus {
+      border-color: var(--primary);
+    }
+
+    input[type="number"]::placeholder {
+      color: var(--muted);
+    }
+
+    .btn-generate {
+      width: 100%;
+      max-width: 280px;
+      height: 48px;
+      font-size: var(--text-md);
+    }
+
+    .result-box {
+      width: 100%;
+      margin-top: var(--space-md);
+      padding: var(--space-lg);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-sm);
+      text-align: left;
+      min-height: 200px;
+    }
+
+    #Table {
+      margin: 0;
+      font-family: var(--font-mono);
+      font-size: var(--text-md);
+      line-height: 1.7;
+      color: var(--text-primary);
+      white-space: pre-line;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: var(--space-lg) 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: var(--text-sm);
+      width: 100%;
+      max-width: 480px;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="index.html" class="btn btn-primary">← Home</a>
+  </div>
+
+  <main>
+    <section>
+      <h1>Multiplication Table</h1>
+
+      <input
+        id="number"
+        type="number"
+        placeholder="Enter a number"
+        min="1"
+      />
+
+      <button
+        class="btn btn-primary btn-generate"
+        type="button"
+        onclick="multNum()"
+      >
+        Get Table
+      </button>
+
+      <div class="result-box">
+        <p id="Table"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; scybud | All rights reserved</p>
+  </footer>
+
+  <script>
+    function multNum() {
+      const num = document.getElementById("number").value;
+      const table = document.getElementById("Table");
+
+      if (!num) {
+        table.innerText = "Please enter a number";
+        return;
       }
-      input {
-        border-radius: 10px;
-        width: 60vw;
-        height: 30px;
-        background: white;
-        border: none;
+
+      table.innerText = "";
+      for (let i = 1; i <= 10; i++) {
+        table.innerText += `${num} × ${i} = ${num * i}\n`;
       }
-      button {
-        width: 300px;
-      }
-      div {
-        min-width: 100px;
-        padding: 10px;
-        margin: 10px 50px;
-        border: 2px solid white;
-        text-align: center;
-        border-radius: 12px;
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <section>
-        <input id="number" type="number" placeholder="enter a number" />
-        <button class="button" type="button" onclick="multNum()">
-          Get Table
-        </button>
-        <div>
-          <p id="Table"></p>
-        </div>
-      </section>
-    </main>
-    <script>
-      //loops
-      function multNum() {
-        const num = document.getElementById("number").value;
-        const table = document.getElementById("Table");
-        table.innerText = "";
-        for (let i = 1; i <= 10; i++) {
-          table.innerText += `${num} x ${i} = ${num * i}\n`;
-        }
-      }
-      multNum();
-    </script>
-  </body>
+    }
+
+    // Optional: generate on load if you want a default
+    // multNum();
+  </script>
+</body>
 </html>

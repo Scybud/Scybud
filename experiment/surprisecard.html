@@ -1,89 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Birthday Card</title>
-    <style>
-      body {
-        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-        text-align: center;
-        font-family: "Arial", sans-serif;
-        height: 100vh;
-        font-weight: 600;
-        font-size: large;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Card | Scybud</title>
+
+  <!-- Scybud UI Core -->
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/variables.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/typography.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/layout.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/animations.css" />
+
+  <!-- Scybud UI Components -->
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/components/buttons/global-buttons.css" />
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--space-lg);
+      box-sizing: border-box;
+    }
+
+    .top-bar {
+      width: 100%;
+      max-width: 420px;
+      margin-bottom: var(--space-lg);
+      align-self: flex-start;
+    }
+
+    main {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      height: 480px;
+      margin: 40px auto 0;
+    }
+
+    /* Top lid (clickable) */
+    .topCardContainer {
+      position: absolute;
+      top: 180px;
+      left: 0;
+      width: 100%;
+      height: 298px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #000;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-sm);
+      transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+      outline: none;
+    }
+
+    .topCardContainer:focus {
+      transform: translateY(-280px);
+    }
+
+    .topCardContainer h1 {
+      margin: 0;
+      font-size: var(--text-2xl);
+      font-weight: var(--font-bold);
+    }
+
+    .topCardContainer p {
+      margin: 0;
+      font-size: var(--text-sm);
+      opacity: 0.85;
+    }
+
+    /* Bottom message card */
+    .buttomCardContainer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 220px;
+      background: var(--surface-primary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+      padding: var(--space-xl) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-md);
+      text-align: center;
+      color: var(--text-primary);
+    }
+
+    .buttomCardContainer h2 {
+      margin: 0;
+      font-size: var(--text-xl);
+      font-weight: var(--font-bold);
+      color: var(--primary-light);
+    }
+
+    .buttomCardContainer p {
+      margin: 0;
+      font-size: var(--text-md);
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .buttomCardContainer p:last-child {
+      color: var(--text-primary);
+      font-weight: var(--font-medium);
+    }
+
+    footer {
+      margin-top: auto;
+      padding: var(--space-lg) 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: var(--text-sm);
+      width: 100%;
+      max-width: 420px;
+    }
+
+    @media (max-width: 480px) {
       main {
-        margin: 0 auto;
-        width: 300px;
-        height: 500px;
+        max-width: 90vw;
+        height: 460px;
       }
       .topCardContainer {
-        padding: 5px;
-        width: 50vw;
-        height: 30vh;
-        max-width: 400px;
-        max-height: 300px;
-        padding: 2px;
-        border: none;
-        position: relative;
-        background-color: #ff6f91;
-        color: white;
-        border-radius: 15px 15px 0 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        z-index: 10;
-        left: 2px;
-        top: 219px;
-        bottom: -200px;
-        transition: all 0.9s ease;
+        height: 200px;
+        top: 160px;
       }
-      .topCardContainer:focus {
-        transform: translateY(-200px);
+      .topCardContainer:focus,
+      .topCardContainer.open {
+        transform: translateY(-180px);
       }
       .buttomCardContainer {
-        background-color: #ff9671;
-        color: whitesmoke;
-        width: 50vw;
-        height: 27vh;
-        max-width: 400px;
-        max-height: 300px;
-        padding: 5px;
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        height: 260px;
       }
-      @media (max-width: 600px) {
-        body {
-          font-weight: 200;
-          font-size: medium;
-        }
-        .topCardContainer {
-          padding: 5px;
-          width: 60vw;
-          margin: 0 auto;
-        }
-        .buttomCardContainer {
-          margin: 0 auto;
-          width: 60vw;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <div tabindex="0" class="topCardContainer">
-        <h1>It`s Your Day😃!!!</h1>
-        <p>Click To Open This Card</p>
-      </div>
-      <div class="buttomCardContainer">
-        <h2>Happy Birthday To You</h2>
-        <p>
-          Wishing you a day filled with joy, happiness, laughter and everything
-          you deserve
-        </p>
-        <p>Stay happy and stay blessed</p>
-        <p>Wishing you a joy filled year ahead💗💓!</p>
-      </div>
-    </main>
-  </body>
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="index.html" class="btn btn-primary">← Home</a>
+  </div>
+
+  <main>
+    <div tabindex="0" class="topCardContainer" id="topCard">
+      <h1>It’s Your Day 😃!!!</h1>
+      <p>Click To Open This Card</p>
+    </div>
+
+    <div class="buttomCardContainer">
+      <h2>Happy Birthday To You</h2>
+      <p>
+        Wishing you a day filled with joy, happiness, laughter and everything
+        you deserve
+      </p>
+      <p>Stay happy and stay blessed</p>
+      <p>Wishing you a joy filled year ahead 💗💓!</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; scybud | All rights reserved</p>
+  </footer>
+
+</body>
 </html>

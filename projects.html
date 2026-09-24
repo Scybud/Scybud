@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link
-      rel="canonical"
-      href="https://scybud.com/projects.html"
-    />
-   
+    <link rel="canonical" href="https://scybud.com/projects.html" />
+
     <meta charset="UTF-8" />
-    <meta name="description" content="Explore all scybud Projects." />
+    <meta name="description" content="Explore all Scybud projects." />
     <meta
       name="keywords"
       content="Projects, Scybud, personal development, creative brand"
@@ -34,30 +31,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scybud Projects</title>
 
-       <link
-  rel="stylesheet"
-  href="https://ui.scybud.com/css/variables.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://ui.scybud.com/components/buttons/nav-buttons.css"
-/>
+    <!-- Scybud UI -->
+    <link rel="stylesheet" href="https://ui.scybud.com/css/variables.css" />
+    <link rel="stylesheet" href="https://ui.scybud.com/css/typography.css" />
+    <link rel="stylesheet" href="https://ui.scybud.com/css/layout.css" />
+    <link rel="stylesheet" href="https://ui.scybud.com/css/animations.css" />
+    <link rel="stylesheet" href="https://ui.scybud.com/components/buttons/global-buttons.css" />
+    <link rel="stylesheet" href="https://ui.scybud.com/components/buttons/nav-buttons.css" />
 
-<!--
-  <link rel="stylesheet" href="sidebar.css" />
-  <link rel="stylesheet" href="cards.css" />
-  <link rel="stylesheet" href="styles.css" />
-  -->
+    <!-- Site styles -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/projects.css" />
+    <link rel="stylesheet" href="css/cards.css" />
+    <link rel="stylesheet" href="css/buttons.css" />
 
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/projects.css">
-<link rel="stylesheet" href="css/cards.css">
-<link rel="stylesheet" href="css/buttons.css">
+    <style>
+      /* Extra refinements for this page */
+      .page-intro {
+        margin-bottom: var(--space-xl);
+      }
 
+      .page-intro h1 {
+        margin: 0 0 var(--space-sm);
+        font-size: var(--text-3xl);
+        font-weight: var(--font-bold);
+      }
+
+      .page-intro p {
+        margin: 0;
+        color: var(--text-secondary);
+        max-width: 560px;
+      }
+
+      /* Personal projects grid */
+      .personal-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-lg);
+        margin-top: var(--space-lg);
+      }
+
+      .project-card {
+        background: var(--surface-primary);
+        border: 1px solid var(--border-primary);
+        border-radius: var(--radius-md);
+        padding: var(--space-lg);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+      }
+
+      .project-card h3 {
+        margin: 0;
+        font-size: var(--text-lg);
+        font-weight: var(--font-bold);
+      }
+
+      .project-card h3 a {
+        color: var(--text-primary);
+        text-decoration: none;
+      }
+
+      .project-card h3 a:hover {
+        color: var(--primary-light);
+      }
+
+      .project-card p {
+        margin: 0;
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+
+      .project-card .tech {
+        font-size: var(--text-xs);
+        color: var(--muted);
+      }
+
+      .project-card .tech span {
+        color: var(--text-secondary);
+        font-weight: var(--font-medium);
+      }
+
+      .project-card .btn {
+        align-self: flex-start;
+        margin-top: var(--space-sm);
+      }
+
+      /* Experiments section */
+      .experiments {
+        margin-top: var(--space-xl);
+        padding-top: var(--space-xl);
+        border-top: 1px solid var(--border-primary);
+      }
+
+      .experiments h2 {
+        margin: 0 0 var(--space-md);
+        font-size: var(--text-xl);
+      }
+
+      .experiments > p {
+        margin: 0 0 var(--space-lg);
+        color: var(--text-secondary);
+        max-width: 560px;
+      }
+
+      .experiments-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: var(--space-sm);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .experiments-list li a {
+        display: block;
+        padding: var(--space-sm) var(--space-md);
+        background: var(--surface-primary);
+        border: 1px solid var(--border-primary);
+        border-radius: var(--radius-sm);
+        color: var(--text-primary);
+        text-decoration: none;
+        font-size: var(--text-sm);
+        transition: background var(--transition-fast), border-color var(--transition-fast);
+      }
+
+      .experiments-list li a:hover {
+        background: var(--hover-bg);
+        border-color: var(--primary);
+      }
+
+      .experiments-list li a span {
+        color: var(--muted);
+        font-size: var(--text-xs);
+      }
+    </style>
   </head>
+
   <body>
-      <header class="header">
+    <header class="header">
       <a href="https://scybud.com" class="logo">Scy<span>bud</span></a>
 
       <nav class="nav">
@@ -66,104 +186,230 @@
         </ul>
       </nav>
 
-      <div
-        id="menuIcon"
-        tabindex="1"
-        role="button"
-        aria-expanded="true"
-      >
+      <div id="menuIcon" tabindex="1" role="button" aria-expanded="true">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </header>
-    
+
     <main class="container">
-      <h1>Explore all Scybud projects.</h1>
-        <div class="dropdown" id="projectDropdown">
-  <button type="button" class="dropdownName" id="dropdownOpen">Navigate</button>
-  <!-- product links are injected here once Supabase responds -->
+      <div class="page-intro">
+        <h1>Explore all Scybud projects</h1>
+        <p>
+          Live products, learning experiments, and small tools built along the way.
+        </p>
+      </div>
+
+      <!-- Dropdown (kept for JS) -->
+      <div class="dropdown" id="projectDropdown">
+        <button type="button" class="dropdownName" id="dropdownOpen">
+          Navigate
+        </button>
+        <!-- product links are injected here once Supabase responds -->
+      </div>
+
+      <article>
+        <!-- Live products (loaded by projects.js) -->
+        <section id="projects">
+          <div class="product-cards loading" id="productsGrid">
+            Loading products…
+          </div>
+        </section>
+
+        <!-- Personal & learning projects -->
+        <section id="other-projects">
+          <h2>Personal &amp; learning projects</h2>
+
+          <div class="personal-grid">
+            <!-- ResBuild -->
+            <div class="project-card" id="resbuild">
+              <h3>
+                <a href="https://abdulroqib123.github.io/ResBuild/" target="_blank" rel="noopener">
+                  ResBuild
+                </a>
+              </h3>
+              <p>
+                A simple resume builder created as a beginner learning project.
+                No longer maintained.
+              </p>
+              <p class="tech"><span>Stack:</span> HTML, CSS, JavaScript</p>
+              <a class="btn btn-primary" href="https://abdulroqib123.github.io/ResBuild/" target="_blank" rel="noopener">
+                View
+              </a>
+            </div>
+
+            <!-- Thia's Vogue -->
+            <div class="project-card" id="thias-vogue">
+              <h3>
+                <a href="https://sites.google.com/view/thias-vogue/home" target="_blank" rel="noopener">
+                  Thia’s Vogue
+                </a>
+              </h3>
+              <p>
+                Fashion store website for a clothing brand based in Nigeria.
+                Built so customers could learn more about the brand.
+              </p>
+              <p class="tech"><span>Stack:</span> Google Sites</p>
+              <a class="btn btn-primary" href="https://sites.google.com/view/thias-vogue/home" target="_blank" rel="noopener">
+                View
+              </a>
+            </div>
+
+            <!-- Resume site -->
+            <div class="project-card" id="abdulroqib-resume">
+              <h3>
+                <a href="https://abdulroqib123.github.io/Abdulroqib-lebenslauf/" target="_blank" rel="noopener">
+                  Abdulroqib Oladipo Resume
+                </a>
+              </h3>
+              <p>
+                First coded website. Built as a personal resume site for an internship application.
+              </p>
+              <p class="tech"><span>Stack:</span> HTML, CSS</p>
+              <a class="btn btn-primary" href="https://abdulroqib123.github.io/Abdulroqib-lebenslauf/" target="_blank" rel="noopener">
+                View
+              </a>
+            </div>
+
+            <!-- Robot car -->
+            <div class="project-card" id="robotcar">
+              <h3>A Basic Robot Car</h3>
+              <p>
+                Learning project that moves forward and stops after a set time.
+                Built to explore robotics and electronics.
+              </p>
+              <p class="tech"><span>Stack:</span> Arduino, Arduino IDE, Motor driver</p>
+              <a class="btn btn-secondary" href="https://res.cloudinary.com/dc1bmavl5/video/upload/v1749296030/VID_20250607_132413_dwdzav.mp4" target="_blank" rel="noopener">
+                Watch video
+              </a>
+            </div>
+
+            <!-- Calculator -->
+            <div class="project-card" id="calculator">
+              <h3>
+                <a href="experiment/calculator.html" target="_blank" rel="noopener">
+                  Calculator
+                </a>
+              </h3>
+              <p>Basic calculator created as a learning project.</p>
+              <p class="tech"><span>Stack:</span> HTML, CSS, JavaScript</p>
+              <a class="btn btn-primary" href="experiment/calculator.html" target="_blank" rel="noopener">
+                View
+              </a>
+            </div>
+          </div>
+
+         <!-- Mini experiments -->
+<div class="experiments" id="experiments">
+  <h2>Mini experiments</h2>
+  <p>
+    Small creative projects and visual experiments made while exploring ideas.
+  </p>
+
+  <!-- Link to the full boredom collection -->
+  <p style="margin-bottom: var(--space-lg);">
+    <a href="experiment/index.html" class="btn btn-primary">
+      View all experiments → Built Out of Boredom
+    </a>
+  </p>
+
+  <ul class="experiments-list">
+    <li>
+      <a href="experiment/glowingButton.html">
+        Hover Glow Buttons
+      </a>
+    </li>
+    <li>
+      <a href="experiment/zooming-img.html">
+        Zoom-on-Hover Image Effect
+      </a>
+    </li>
+    <li>
+      <a href="experiment/loginForm.html">
+        Animated Login Form
+      </a>
+    </li>
+    <li>
+      <a href="experiment/multiplicationtable.html">
+        Multiplication Table <span>· JS loops</span>
+      </a>
+    </li>
+    <li>
+      <a href="experiment/surprisecard.html">
+        Sliding Cover Surprise Card
+      </a>
+    </li>
+    <li>
+      <a href="experiment/YtoM.html">
+        Years to Months Calculator
+      </a>
+    </li>
+    <li>
+      <a href="experiment/counter.html">
+        Counter
+      </a>
+    </li>
+    <li>
+      <a href="experiment/loading.html">
+        Loading Animation
+      </a>
+    </li>
+    <li>
+      <a href="experiment/s.html">
+        Simple Styled Form
+      </a>
+    </li>
+    <li>
+      <a href="experiment/phone.html">
+        Phone Mockup <span>· pure HTML/CSS</span>
+      </a>
+    </li>
+    <li>
+      <a href="experiment/creditCard.html">
+        Credit Card Mockup <span>· pure HTML/CSS</span>
+      </a>
+    </li>
+    <li>
+      <a href="experiment/loader-gallery.html">
+        Loading Animation (alt)
+      </a>
+    </li>
+  </ul>
 </div>
-
-<article>
-  <section id="projects">
-    <div class="product-cards loading" id="productsGrid">Loading products…</div>
-  </section>
-
-  <section id="other-projects">
-    <h2>Personal &amp; learning projects</h2>
-    <section id="resbuild" class="project">
-      <h2><a href="https://abdulroqib123.github.io/ResBuild/" target="_blank">ResBuild</a></h2>
-      <p><span>ResBuild</span> is a resume builder that helps you create a simple resume in minutes.</p>
-      <p>This project is a learning project created by <a href="about.html#aboutFounder">Abdulroqib</a> to learn and improve his skills as a beginner and it is no longer maintained.</p>
-      <p><span>Tech Stack:</span> HTML, CSS and javascript</p>
-      <a class="btn" href="https://abdulroqib123.github.io/ResBuild/" target="_blank">View</a>
-    </section>
-    <section id="thias-vogue" class="project">
-      <h2><a href="https://sites.google.com/view/thias-vogue/home" target="_blank">Thia`s Vogue</a></h2>
-      <p><span>Thia`s Vogue</span> is a fashion store website for a clothing brand based in Nigeria. It was created to allow customers learn more about the brand.</p>
-      <p><span>Tech Stack:</span> Google Sites</p>
-      <a class="btn" href="https://sites.google.com/view/thias-vogue/home" target="_blank">View</a>
-    </section>
-    <section id="abdulroqib-resume" class="project">
-      <h2><a href="https://abdulroqib123github.io/Abdulroqib-lebenslauf/" target="_blank">Abdulroqib Oladipo Resume</a></h2>
-      <p>This is <a href="about.html#aboutFounder">Abdulroqib</a> Resume written as a website. It was the first coded website created by <a href="about.html#aboutFounder">Abdulroqib</a> to showcase his strenght in web development for an internship role.</p>
-      <p><span>Tech Stack:</span> HTML and CSS</p>
-      <a class="btn" href="https://abdulroqib123.github.io/Abdulroqib-lebenslauf/" target="_blank">View</a>
-    </section>
-    <section id="robotcar" class="project">
-      <h2>A Basic Robot Car</h2>
-      <p>The robot car is a learning project with the functionnality of moving forward and stopping at a given period of time.</p>
-      <p>It was created by <a href="about.html#aboutFounder">Abdulroqib</a> to learn the basics of robotics and electronics. watch the video <a href="https://res.cloudinary.com/dc1bmavl5/video/upload/v1749296030/VID_20250607_132413_dwdzav.mp4">here</a></p>
-      <p><span>Tech Stack:</span> Arduino, Arduino IDE and Motor driver</p>
-    </section>
-    <section id="calculator" class="project">
-      <h2><a href="experiment/calculator.html" target="_blank">calculator</a></h2>
-      <p>This is a basic calculator created as a learning project.</p>
-      <p>It was created by <a href="about.html#aboutFounder">Abdulroqib</a></p>
-      <p><span>Tech Stack:</span> HTML, CSS and JavaScript</p>
-      <a class="btn" href="experiment/calculator.html" target="_blank">View</a>
-    </section>
- 
-    <section id="experiments" class="project">
-      <p>These are creative mini-projects and visual experiments that showcase ongoing exploration at Scybud.</p>
-      <ul>
-        <li><a href="experiment/glowingButton.html">Hover Glow Buttons</a></li>
-        <li><a href="experiment/zooming-img.html">Zoom-on-Hover Image Effect</a></li>
-        <li><a href="experiment/styleform.html">Animated Cursor Trail and login form</a></li>
-        <li><a href="experiment/multiplicationtable.html">Multiplucation calculator</a> (Practicing JavaScript loop)</li>
-        <li><a href="experiment/surprisecard.html">Sliding Cover Surprise Card</a></li>
-        <li><a href="experiment/YtoM.html">A year to months calculator</a></li>
-        <li><a href="experiment/counter.html">A counter</a></li>
-        <li><a href="experiment/loading.html">Loading Animation</a></li>
-        <li><a href="experiment/s.html">Simple styled form</a></li>
-        <li><a href="experiment/phone.html">A phone muckup</a> (designed purely with HTML and CSS)</li>
-        <li><a href="experiment/creditCard.html">A credit card muckup</a> (designed purely with HTML and CSS)</li>
-        <li><a href="experiment/loader.html">A loading animation</a></li>
-      </ul>
-    </section>
-  </section>
-</article>
+        </section>
+      </article>
     </main>
 
-        <footer>
-  <p>&copy; scybud | All rights reserved</p>
-  <button id="cookieSettings" class="cookie-settings-link">Cookie settings</button>
-</footer>
+    <footer>
+      <p>&copy; scybud | All rights reserved</p>
+      <button id="cookieSettings" class="cookie-settings-link">
+        Cookie settings
+      </button>
+    </footer>
 
+    <!-- Cookie consent -->
     <div id="consentOverlay" class="consent-overlay" hidden>
-  <div class="consent-modal" role="dialog" aria-modal="true" aria-labelledby="consentTitle">
-    <h3 id="consentTitle">Allow analytics?</h3>
-    <p>We'd like to use Google Analytics to see how the site is used. No data goes toward ads, and you can change this anytime by clearing site data.</p>
-    <div class="consent-actions">
-      <button class="consent-accept" id="consentAccept">Allow</button>
-      <button class="consent-decline" id="consentDecline">Decline</button>
+      <div
+        class="consent-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="consentTitle"
+      >
+        <h3 id="consentTitle">Allow analytics?</h3>
+        <p>
+          We’d like to use Google Analytics to see how the site is used. No data
+          goes toward ads, and you can change this anytime by clearing site data.
+        </p>
+        <div class="consent-actions">
+          <button class="consent-accept" id="consentAccept">Allow</button>
+          <button class="consent-decline" id="consentDecline">Decline</button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<script type="module" src="js/analytics.js"></script>
-<script src="js/sidebar.js"></script>
+    <script type="module" src="js/analytics.js"></script>
+    <script src="js/sidebar.js"></script>
     <script type="module" src="js/projects.js"></script>
   </body>
 </html>

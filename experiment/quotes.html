@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Years To Months | Scybud</title>
+  <title>Quotes For You | Scybud</title>
 
   <!-- Scybud UI Core -->
   <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/variables.css" />
@@ -30,13 +30,21 @@
 
     .top-bar {
       width: 100%;
-      max-width: 420px;
+      max-width: 480px;
       margin-bottom: var(--space-lg);
+    }
+
+    h1 {
+      margin: 0 0 var(--space-xl);
+      font-size: var(--text-3xl);
+      font-weight: var(--font-bold);
+      text-align: center;
+      color: var(--text-primary);
     }
 
     main {
       width: 100%;
-      max-width: 420px;
+      max-width: 480px;
       background: var(--surface-primary);
       border: 1px solid var(--border-primary);
       border-radius: var(--radius-md);
@@ -48,60 +56,51 @@
       gap: var(--space-lg);
     }
 
-    h1 {
-      margin: 0;
-      font-size: var(--text-2xl);
-      font-weight: var(--font-bold);
-      text-align: center;
-      color: var(--text-primary);
-    }
-
-    input[type="number"] {
+    #advice {
       width: 100%;
-      max-width: 280px;
-      height: 48px;
-      padding: 0 var(--space-md);
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-primary);
+      min-height: 120px;
+      padding: var(--space-lg);
       background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-sm);
       color: var(--text-primary);
       font-size: var(--text-md);
-      font-family: var(--font-mono);
-      outline: none;
-      transition: border-color var(--transition-fast);
-      box-sizing: border-box;
+      line-height: 1.6;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    input[type="number"]:focus {
-      border-color: var(--primary);
-    }
-
-    input[type="number"]::placeholder {
+    #advice .placeholder {
       color: var(--muted);
+      margin: 0;
     }
 
-    .btn-calc {
+    #advice p {
+      margin: 0;
+    }
+
+    .btn-get {
       width: 100%;
-      max-width: 280px;
+      max-width: 220px;
       height: 48px;
       font-size: var(--text-md);
     }
 
-    #result {
-      margin: 0;
-      min-height: 28px;
-      font-size: var(--text-lg);
-      font-weight: var(--font-medium);
-      color: var(--text-secondary);
-      text-align: center;
+    /* Loader using Scybud primary color */
+    .loader {
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--border-secondary);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: rotate 0.7s linear infinite;
     }
 
-    #result.success {
-      color: var(--success);
-    }
-
-    #result.error {
-      color: var(--danger);
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
 
     footer {
@@ -111,7 +110,7 @@
       color: var(--muted);
       font-size: var(--text-sm);
       width: 100%;
-      max-width: 420px;
+      max-width: 480px;
     }
   </style>
 </head>
@@ -120,21 +119,16 @@
     <a href="index.html" class="btn btn-primary">← Home</a>
   </div>
 
+  <h1>Quotes For You!</h1>
+
   <main>
-    <h1>Calculate your age in months</h1>
+    <div id="advice">
+      <p class="placeholder">Quotes appear here..</p>
+    </div>
 
-    <input
-      type="number"
-      id="yearsInput"
-      placeholder="Enter your age in years"
-      min="0"
-    />
-
-    <button type="button" class="btn btn-primary btn-calc" onclick="calc()">
-      Calculate
+    <button type="button" id="getAdvice" class="btn btn-primary btn-get">
+      Get Quote
     </button>
-
-    <p id="result"></p>
   </main>
 
   <footer>
@@ -142,22 +136,25 @@
   </footer>
 
   <script>
-    function calc() {
-      const yearsInput = document.getElementById("yearsInput");
-      const result = document.getElementById("result");
-      const years = Number(yearsInput.value);
+    const adviceEl = document.getElementById("advice");
+    const getAdviceBtn = document.getElementById("getAdvice");
 
-      result.classList.remove("success", "error");
+    if (getAdviceBtn) {
+      getAdviceBtn.addEventListener("click", () => {
 
-      if (!years || years < 0) {
-        result.innerText = "Please enter a valid age in years";
-        result.classList.add("error");
-        return;
-      }
 
-      const calcAge = years * 12;
-      result.innerText = `You are ${calcAge} months old.`;
-      result.classList.add("success");
+        fetch("https://api.adviceslip.com/advice")
+          .then(response => response.json())
+          .then(data => {
+            if (adviceEl) {
+              adviceEl.innerHTML = `<p>${data.slip.advice}</p>`;
+            }
+          })
+          .catch(error => {
+            console.error(error);
+            adviceEl.innerHTML = `<p class="placeholder">Failed to load quote. Try again.</p>`;
+          });
+      });
     }
   </script>
 </body>

@@ -1,270 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phone design</title>
-    <style>
-      * {
-            padding: 0;
-            margin: 0;
-      }
-      body {
-        font-family: Arial, sans-serif;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phone design | Scybud</title>
+
+  <!-- Scybud UI Core -->
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/variables.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/typography.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/layout.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/animations.css" />
+
+  <!-- Scybud UI Components -->
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/components/buttons/global-buttons.css" />
+
+  <style>
+    /* Page shell – Scybud tokens */
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+
+    .top-bar {
+      position: absolute;
+      top: var(--space-lg);
+      left: var(--space-lg);
+      z-index: 20;
+    }
+
+    main {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 60px);
+      padding: var(--space-md);
+    }
+
+    /* === Essential phone mockup styles (kept + refined) === */
+    .phoneContainer {
+      background: linear-gradient(160deg, var(--surface-primary), var(--bg-secondary));
+      width: 340px;
+      height: 700px;
+      border-radius: 28px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      background-size: cover;
+      background-repeat: no-repeat;
+      box-shadow:
+        inset 0 0 12px rgba(0, 0, 0, 0.4),
+        0 12px 40px rgba(0, 0, 0, 0.5);
+      position: relative;
+      border: 3px solid var(--border-primary);
+      overflow: hidden;
+    }
+
+    .phoneHeader {
+      height: 40px;
+      width: 100%;
+      position: relative;
+      margin-top: 8px;
+    }
+
+    #camera {
+      left: 50%;
+      transform: translateX(-50%);
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: #222;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: inset 0 0 2px rgba(0,0,0,0.6);
+    }
+
+    #cameraLens {
+      width: 7.5px;
+      height: 7.5px;
+      background: #000;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #cameraInner {
+      width: calc(7.5px / 2);
+      height: calc(7.5px / 2);
+      background: #666;
+      border-radius: 50%;
+    }
+
+    .phoneFooter {
+      margin-top: auto;
+      margin-bottom: 16px;
+    }
+
+    .btns {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    #miniBtn {
+      cursor: pointer;
+      background: var(--text-primary);
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      opacity: 0.9;
+    }
+
+    #homeBtn {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid var(--text-primary);
+    }
+
+    #homeBtnCircle {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text-primary);
+    }
+
+    #backBtn {
+      cursor: pointer;
+      width: 0;
+      height: 0;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-right: 13px solid var(--text-primary);
+    }
+
+    #volumeBtn {
+      width: 4px;
+      border-radius: 10px;
+      position: absolute;
+      top: 90px;
+      left: -5px;
+      height: 90px;
+      background-color: var(--border-secondary);
+      box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    }
+
+    #powerBtn {
+      width: 4px;
+      border-radius: 10px;
+      position: absolute;
+      top: 200px;
+      left: -5px;
+      height: 32px;
+      background-color: var(--border-secondary);
+      box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    }
+
+    #phoneContent {
+      display: flex;
+      flex-direction: column;
+      padding: 0 12px;
+      flex: 1;
+    }
+
+    #phoneContent .input {
+      width: 90%;
+      margin: 20px auto 0;
+      height: 42px;
+      border-radius: 30px;
+      border: 1px solid var(--border-primary);
+      outline: none;
+      padding: 0 16px;
+      background: var(--surface-secondary);
+      color: var(--text-primary);
+      font-family: var(--font-primary);
+      font-size: var(--text-sm);
+    }
+
+    .input::placeholder {
+      color: var(--muted);
+    }
+
+    /* App grid */
+    #scybudApps {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin-top: 30px;
+      padding: 0 10px;
+    }
+
+    #scybudApps a {
+      text-decoration: none;
+    }
+
+    #scybudApps .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #scybudApps a span {
+      margin-top: 6px;
+      color: var(--text-primary);
+      font-size: 11px;
+      font-weight: var(--font-semibold);
+      text-align: center;
+    }
+
+    #scybudApps .container img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      background-color: var(--surface-primary);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-primary);
+      transition: transform var(--transition-normal);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    #scybudApps .container img:hover {
+      transform: scale(1.08);
+    }
+
+    @media (max-width: 400px) {
       main {
-        margin-top: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+      .top-bar {
+        top: 12px;
+        left: 12px;
       }
       .phoneContainer {
-        background-image: url("backgroundimg.jpg");
-        width: 340px;
-        height: 700px;
-        border-radius: 12px;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        background-size: cover;
-        background-repeat: no-repeat;
-        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3),
-          0 0 10px rgba(0, 0, 0, 0.2);
-        position: relative;
-      }
-      .phoneHeader {
-        height: 40px;
         width: 100%;
-        position: relative;
-        margin-top: 2px;
-      }
-      #camera {
-        left: 50%;
-        transform: translateX(-50%);
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        background: #313131;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #cameraLens {
-        width: 7.5px;
-        height: 7.5px;
-        background: #000000;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #cameraInner {
-        width: calc(7.5px / 2);
-        height: calc(7.5px / 2);
-        background: #888888;
-        border-radius: 50%;
-      }
-      .phoneFooter {
-        margin-top: auto;
-        margin-bottom: 10px;
-      }
-      .btns {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-      }
-      #miniBtn {
-        cursor: pointer;
-        background: #ffffff;
-        width: 16px;
-        height: 16px;
-        border-radius: 5px;
-      }
-      #homeBtn {
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        border: 2px solid #ffffff;
-      }
-      #homeBtnCircle {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #ffffff;
-      }
-      #backBtn {
-        cursor: pointer;
-        width: 0;
-        height: 0;
-        border-top: 10px solid transparent; /* Transparent top border */
-        border-bottom: 10px solid transparent; /* Transparent bottom border */
-        border-right: 14px solid #ffffff; /* Solid right border for the triangle */
-      }
-      #volumeBtn {
-        width: 4px;
-        border-radius: 10px;
-        position: absolute;
-        top: 90px;
-        left: -4px;
-        height: 90px;
-        background-color: #535353;
-        box-shadow: 0 0 2px #000000;
-      }
-      #powerBtn {
-        width: 4px;
-        border-radius: 10px;
-        position: absolute;
-        top: 200px;
-        left: -4px;
-        height: 30px;
-        background-color: #535353;
-        box-shadow: 0 0 2px #000000;
-      }
-      #phoneContent {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-      }
-      #phoneContent .input {
-        width: 80%;
-        margin: 0 auto;
-        height: 40px;
-        border-radius: 30px;
+        height: 100dvh;
+        border-radius: 0;
         border: none;
-        outline: none;
-        padding: 0 7px;
-        background: #313131;
-        color: #f1f1f1;
       }
-      .input::placeholder {
-        color: #aaaaaa;
-      }
-      /*STYLE FOR PHONE APPS*/
-      #scybudApps {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 25px;
-      }
-      #scybudApps a {
-        text-decoration: none;
-      }
-      #scybudApps .container {
-        display: flex;
-        flex-direction: column; /* FIXED HERE */
-        align-items: center;
-        justify-content: center;
-        margin-top: 50px;
-      }
-      #scybudApps a span {
-        margin-top: 5px;
-        color: #000000;
-        font-size: 12px;
-        font-weight: 600;
-      }
-      #scybudApps .container img {
-        width: 50px;
-        height: 50px;
-        object-fit: contain;
-        background-color: whitesmoke;
-        border-radius: 12px;
-        transition: all 0.6s ease;
-      }
-      #scybudApps .container img:hover {
-        transform: scale(1.05);
-      }
-      @media (max-width: 400px) {
-            
-            main {
-                  margin: 0;
-                  padding: 0;
-            }
-        .phoneContainer {
-          width: 100%;
-          height: 100dvh;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <div class="phoneContainer">
-        <div id="volumeBtn"></div>
-        <div id="powerBtn"></div>
-        <header class="phoneHeader">
-          <div id="camera">
-            <div id="cameraLens">
-              <div id="cameraInner"></div>
-            </div>
-          </div>
-        </header>
-        <div id="phoneContent">
-          <!--FOR GOOGLE SEARCH INPUT-->
-          <input
-            type="search"
-            name="search"
-            id="search"
-            class="input"
-            placeholder="Search anything"
-          />
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="index.html" class="btn btn-primary">← Home</a>
+  </div>
 
-          <!--FOR PHONE APPS-->
-          <div id="FromScybud">
-            <div id="scybudApps">
-              <a href="https://scyflix.github.io/RushSite/" target="_blank">
-                <div class="container">
-                  <img
-                    src="https://scyflix.github.io/RushSite/assets/RushSite%20logo.svg"
-                    alt="RushSite Logo"
-                  />
-                  <span>RushSite</span>
-                </div>
-              </a>
-              <a href="https://trytasty.de/" target="_blank">
-                <div class="container">
-                  <img
-                    src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1756143298/export202508172154182910_eqqsko.avif"
-                    alt="TryTasty Logo"
-                  />
-                  <span>TryTasty</span>
-                </div>
-              </a>
-              <a href="https://scyflix.github.io/Playbud/" target="_blank">
-                <div class="container">
-                  <img
-                    src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1757763602/ChatGPT_Image_Sep_13_2025_01_23_30_PM_gqilng.png"
-                    alt="Playbud Logo"
-                  />
-                  <span>Playbud</span>
-                </div>
-              </a>
-              <a href="https://scyflix.github.io/Scybud-Labs/" target="_blank">
-                <div class="container">
-                  <img
-                    src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1750181306/My%20Brand/file_00000000610c6243beec099c93f3f4eb_wgtezq.png"
-                    alt="Scybud Logo"
-                  />
-                  <span>Scybud</span>
-                </div>
-              </a>
-            </div>
+  <main>
+    <div class="phoneContainer">
+      <div id="volumeBtn"></div>
+      <div id="powerBtn"></div>
+
+      <header class="phoneHeader">
+        <div id="camera">
+          <div id="cameraLens">
+            <div id="cameraInner"></div>
           </div>
         </div>
-        <footer class="phoneFooter">
-          <div class="btns">
-            <div id="miniBtn"></div>
-            <div id="homeBtn">
-              <div id="homeBtnCircle"></div>
-            </div>
-            <div id="backBtn"></div>
+      </header>
+
+      <div id="phoneContent">
+        <!-- Search input -->
+        <input
+          type="search"
+          name="search"
+          id="search"
+          class="input"
+          placeholder="Search anything"
+        />
+
+        <!-- Apps -->
+        <div id="FromScybud">
+          <div id="scybudApps">
+            <a href="https://scyflix.github.io/RushSite/" target="_blank">
+              <div class="container">
+                <img
+                  src="https://rushsite.scybud.com/assets/RushSite%20logo.svg"
+                  alt="RushSite Logo"
+                />
+                <span>RushSite</span>
+              </div>
+            </a>
+
+            <a href="https://trytasty.de/" target="_blank">
+              <div class="container">
+                <img
+                  src="https://res.cloudinary.com/dc1bmavl5/image/upload/v1768408808/Trytasty_logo_nx6kbn.webp"
+                  alt="TryTasty Logo"
+                />
+                <span>TryTasty</span>
+              </div>
+            </a>
+
+            <a href="https://loghue.com" target="_blank">
+              <div class="container">
+                <img
+                  src="https://loghue.com/assets/images/loghue-logo.png"
+                  alt="LogHue Logo"
+                />
+                <span>LogHue</span>
+              </div>
+            </a>
+
+            <a href="https://scybud.com" target="_blank">
+              <div class="container">
+                <img
+                  src="https://scybud.com/assets/scybud-logo.png"
+                  alt="Scybud Logo"
+                />
+                <span>Scybud</span>
+              </div>
+            </a>
           </div>
-        </footer>
+        </div>
       </div>
-    </main>
-  </body>
+
+      <footer class="phoneFooter">
+        <div class="btns">
+          <div id="miniBtn"></div>
+          <div id="homeBtn">
+            <div id="homeBtnCircle"></div>
+          </div>
+          <div id="backBtn"></div>
+        </div>
+      </footer>
+    </div>
+  </main>
+</body>
 </html>

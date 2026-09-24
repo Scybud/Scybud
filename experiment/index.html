@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Built Out of Boredom | Scybud</title>
+
+  <!-- Scybud UI Core -->
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/variables.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/typography.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/layout.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/animations.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/components/buttons/global-buttons.css" />
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-primary);
+      line-height: 1.5;
+    }
+
+    .scybud-link {
+        position: absolute;
+        top: var(--space-sm);
+        left: var(--space-sm);
+
+    }
+    /* Hero */
+    .hero {
+      padding: 80px 24px 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-primary);
+      background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: var(--font-bold);
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 540px;
+      color: var(--text-secondary);
+      font-size: var(--text-lg);
+    }
+
+    .hero .tag {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 6px 14px;
+      background: var(--surface-primary);
+      border: 1px solid var(--border-primary);
+      border-radius: 999px;
+      font-size: var(--text-sm);
+      color: var(--muted);
+    }
+
+    /* Grid */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .section-title {
+      margin: 0 0 32px;
+      font-size: var(--text-xl);
+      font-weight: var(--font-semibold);
+      color: var(--text-secondary);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+    }
+
+    /* Project card */
+    .project {
+      background: var(--surface-primary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .preview {
+      position: relative;
+      height: 240px;
+      background: var(--bg-secondary);
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-primary);
+    }
+
+    .preview iframe {
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: top left;
+      border: none;
+      pointer-events: none; /* so the card stays clickable */
+    }
+
+    .preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 12px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .project:hover .preview-overlay {
+      opacity: 1;
+    }
+
+    .info {
+      padding: 20px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .info h2 {
+      margin: 0;
+      font-size: var(--text-lg);
+      font-weight: var(--font-bold);
+    }
+
+    .info p {
+      margin: 0;
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      flex: 1;
+    }
+
+    .info .btn {
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid var(--border-primary);
+      color: var(--muted);
+      font-size: var(--text-sm);
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .preview {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <a class="scybud-link" href="https://scybud.com" target="_blank" rel="noopener noreferrer">Go to Scybud</a>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Built Out of Boredom</h1>
+    <p>
+      A collection of small experiments, tools, and mockups made when there was nothing better to do.
+      No big plans. Just code.
+    </p>
+    <div class="tag">For people who are also bored</div>
+  </section>
+
+  <!-- Projects -->
+  <div class="container">
+    <h2 class="section-title">The Projects</h2>
+
+    <div class="grid">
+
+      <!-- Calculator -->
+      <article class="project">
+        <div class="preview">
+          <iframe src="calculator.html" loading="lazy" title="Calculator preview"></iframe>
+          <div class="preview-overlay">
+            <a href="calculator.html" class="btn btn-primary btn-pill">Open</a>
+          </div>
+        </div>
+        <div class="info">
+          <h2>Calculator</h2>
+          <p>A straightforward calculator. Sometimes you just need to do math.</p>
+          <a href="calculator.html" class="btn btn-secondary">View full page</a>
+        </div>
+      </article>
+
+      <!-- Counter -->
+      <article class="project">
+        <div class="preview">
+          <iframe src="counter.html" loading="lazy" title="Counter preview"></iframe>
+          <div class="preview-overlay">
+            <a href="counter.html" class="btn btn-primary btn-pill">Open</a>
+          </div>
+        </div>
+        <div class="info">
+          <h2>Counter App</h2>
+          <p>Click up. Click down. The simplest possible interaction.</p>
+          <a href="counter.html" class="btn btn-secondary">View full page</a>
+        </div>
+      </article>
+
+      <!-- Credit Card -->
+      <article class="project">
+        <div class="preview">
+          <iframe src="creditCard.html" loading="lazy" title="Credit Card preview"></iframe>
+          <div class="preview-overlay">
+            <a href="creditCard.html" class="btn btn-primary btn-pill">Open</a>
+          </div>
+        </div>
+        <div class="info">
+          <h2>Credit Card Mockup</h2>
+          <p>A skewed card that straightens on hover. Pure visual play.</p>
+          <a href="creditCard.html" class="btn btn-secondary">View full page</a>
+        </div>
+      </article>
+
+      <!-- Loader Gallery -->
+      <article class="project">
+        <div class="preview">
+          <iframe src="loader-gallery.html" loading="lazy" title="Loader Gallery preview"></iframe>
+          <div class="preview-overlay">
+            <a href="loader-gallery.html" class="btn btn-primary btn-pill">Open</a>
+          </div>
+        </div>
+        <div class="info">
+          <h2>Loader Gallery</h2>
+          <p>Many loaders. Each one is copyable as clean HTML + CSS.</p>
+          <a href="loader-gallery.html" class="btn btn-secondary">View full page</a>
+        </div>
+      </article>
+
+      <!-- Multiplication Table -->
+      <article class="project">
+        <div class="preview">
+          <iframe src="multiplicationtable.html" loading="lazy" title="Multiplication Table preview"></iframe>
+          <div class="preview-overlay">
+            <a href="multiplicationtable.html" class="btn btn-primary btn-pill">Open</a>
+          </div>
+        </div>
+        <div class="info">
+          <h2>Multiplication Table</h2>
+          <p>Type a number. Get the table. Instant feedback.</p>
+          <a href="multiplicationtable.html" class="btn btn-secondary">View full page</a>
+        </div>
+      </article>
+
+      <!-- Phone -->
+      <article class="project">
+        <div class="preview">
+          <iframe src="phone.html" loading="lazy" title="Phone preview"></iframe>
+          <div class="preview-overlay">
+            <a href="phone.html" class="btn btn-primary btn-pill">Open</a>
+          </div>
+        </div>
+        <div class="info">
+          <h2>Phone Design</h2>
+          <p>A phone mockup with a few Scybud apps on the home screen.</p>
+          <a href="phone.html" class="btn btn-secondary">View full page</a>
+        </div>
+      </article>
+
+      <!-- Quotes -->
+      <article class="project">
+        <div class="preview">
+          <iframe src="quotes.html" loading="lazy" title="Quotes preview"></iframe>
+          <div class="preview-overlay">
+            <a href="quotes.html" class="btn btn-primary btn-pill">Open</a>
+          </div>
+        </div>
+        <div class="info">
+          <h2>Quotes For You</h2>
+          <p>Random advice from an API. Good for when you need a sentence.</p>
+          <a href="quotes.html" class="btn btn-secondary">View full page</a>
+        </div>
+      </article>
+
+      <!-- Login Form -->
+      <article class="project">
+        <div class="preview">
+          <iframe src="loginForm.html" loading="lazy" title="Login Form preview"></iframe>
+          <div class="preview-overlay">
+            <a href="loginForm.html" class="btn btn-primary btn-pill">Open</a>
+          </div>
+        </div>
+        <div class="info">
+          <h2>Styled Login Form</h2>
+          <p>A login form with a tiny easter-egg password and animations.</p>
+          <a href="loginForm.html" class="btn btn-secondary">View full page</a>
+        </div>
+      </article>
+
+      <!-- Birthday Card -->
+      <article class="project">
+        <div class="preview">
+          <iframe src="surprisecard.html" loading="lazy" title="Birthday Card preview"></iframe>
+          <div class="preview-overlay">
+            <a href="surprisecard.html" class="btn btn-primary btn-pill">Open</a>
+          </div>
+        </div>
+        <div class="info">
+          <h2>Birthday Card</h2>
+          <p>Click the lid. It opens. A small interactive greeting.</p>
+          <a href="surprisecard.html" class="btn btn-secondary">View full page</a>
+        </div>
+      </article>
+
+      <!-- Years to Months -->
+      <article class="project">
+        <div class="preview">
+          <iframe src="YtoM.html" loading="lazy" title="Years to Months preview"></iframe>
+          <div class="preview-overlay">
+            <a href="YtoM.html" class="btn btn-primary btn-pill">Open</a>
+          </div>
+        </div>
+        <div class="info">
+          <h2>Years to Months</h2>
+          <p>Convert your age into months. Because why not.</p>
+          <a href="YtoM.html" class="btn btn-secondary">View full page</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>Made when there was nothing else to do · Scybud</p>
+  </footer>
+
+</body>
+</html>

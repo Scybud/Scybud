@@ -1,142 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scybud | calculator</title>
-    <style>
-      body {
-        margin: 0;
-        height: 100vh;
-        background-color: #25294d;
-      }
-      #calculator {
-        font-family: monospace, Arial;
-        background-color: #1c1f3b;
-        border-radius: 15px;
-        overflow: hidden;
-        max-width: 100vw;
-      }
-      #display {
-        background-color: rgba(28, 31, 59, 0.5);
-        width: 100%;
-        padding: 30px;
-        text-align: left;
-        font-size: 60px;
-        color: white;
-      }
-      #btns {
-        height: 55vh;
-        gap: 5px;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        width: auto;
-      }
-      button:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-      }
-      button:active {
-        background-color: rgba(0, 0, 0, 0.6);
-      }
-      button {
-        text-align: center;
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        border: none;
-        background-color: rgba(0, 0, 0, 1);
-        color: white;
-        font-size: 60px;
-        font-weight: bold;
-        cursor: pointer;
-        margin: 3px;
-      }
-      .operators {
-        background-color: orange;
-      }
-      .operators:hover {
-        background-color: rgb(252, 170, 17);
-      }
-      .operators:active {
-        background-color: rgb(255, 182, 46);
-      }
-      @media (max-width: 800px) {
-        #calculator {
-          font-family: monospace, Arial;
-          background-color: #1c1f3b;
-          border-radius: 15px;
-          overflow: hidden;
-          max-width: 100vw;
-        }
-        button {
-          text-align: center;
-          width: 70px;
-          height: 70px;
-          border-radius: 50%;
-          border: none;
-          background-color: rgba(0, 0, 0, 1);
-          color: white;
-          font-size: 30px;
-          font-weight: bold;
-          cursor: pointer;
-        }
-      }
-      footer {
-  color: beige;
-  padding: 10px 0;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(6px);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>calculator | Scybud</title>
 
-    </style>
-  </head>
-  <body>
-    <div id="calculator">
-      <input id="display" readonly />
-      <div id="btns">
-        <button onclick="appendToDisplay(`+`)" class="operators">+</button>
-        <button onclick="appendToDisplay(`-`)" class="operators">-</button>
-        <button onclick="appendToDisplay(`*`)" class="operators">*</button>
-        <button onclick="appendToDisplay(`/`)" class="operators">/</button>
-        <button onclick="appendToDisplay(`.`)" class="operators">.</button>
-        <button onclick="clearDisplay()" class="operators">C</button>
-        <button onclick="appendToDisplay(`7`)">7</button>
-        <button onclick="appendToDisplay(`8`)">8</button>
-        <button onclick="appendToDisplay(`9`)">9</button>
-        <button onclick="appendToDisplay(`4`)">4</button>
-        <button onclick="appendToDisplay(`5`)">5</button>
-        <button onclick="appendToDisplay(`6`)">6</button>
-        <button onclick="appendToDisplay(`1`)">1</button>
-        <button onclick="appendToDisplay(`2`)">2</button>
-        <button onclick="appendToDisplay(`3`)">3</button>
-        <button onclick="appendToDisplay(`0`)">0</button>
-        <button onclick="calculate()">=</button>
-      </div>
+  <!-- Scybud UI Core -->
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/variables.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/typography.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/layout.css" />
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/animations.css" />
+
+  <!-- Scybud UI Components -->
+  <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/components/buttons/global-buttons.css" />
+
+  <style>
+    /* Minimal page layout using Scybud tokens only */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--space-lg);
+      box-sizing: border-box;
+    }
+
+    .top-bar {
+      width: 100%;
+      max-width: 360px;
+      margin-bottom: var(--space-lg);
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    #calculator {
+      width: 100%;
+      max-width: 400px;
+      background-color: var(--surface-primary);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-primary);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    #display {
+      width: 100%;
+      padding: var(--space-xl) var(--space-lg);
+      font-size: var(--text-4xl);
+      font-family: var(--font-mono);
+      text-align: right;
+      background-color: var(--surface-secondary);
+      color: var(--text-primary);
+      border: none;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    #btns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-sm);
+      padding: var(--space-md);
+    }
+
+    /* Calculator-specific button sizing on top of Scybud .btn */
+    #btns .btn {
+      aspect-ratio: 1;
+      font-size: var(--text-xl);
+      font-weight: var(--font-bold);
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      min-height: 64px;
+    }
+
+    /* Operators use primary color */
+    #btns .btn-operator {
+      background: var(--primary);
+      color: #000000;
+    }
+    #btns .btn-operator:hover {
+      background: var(--primary-light);
+    }
+
+    /* Equals uses warning tone for emphasis */
+    #btns .btn-equals {
+      background: var(--warning);
+      color: #000;
+      grid-column: span 4;
+      height: 30px;
+      width: 100%;
+    }
+    #btns .btn-equals:hover {
+      filter: brightness(1.1);
+    }
+
+    footer {
+      margin-top: auto;
+      padding: var(--space-lg) 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: var(--text-sm);
+      border-top: 1px solid var(--border-primary);
+      width: 100%;
+      max-width: 360px;
+    }
+
+    @media (max-width: 400px) {
+      #btns .btn {
+        min-height: 56px;
+        font-size: var(--text-lg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="index.html" class="btn btn-primary">← Home</a>
+  </div>
+
+  <div id="calculator">
+    <input id="display" readonly placeholder="0" />
+
+    <div id="btns">
+      <button type="button" class="btn btn-secondary" onclick="clearDisplay()">C</button>
+      <button type="button" class="btn btn-operator" onclick="appendToDisplay('/')">/</button>
+      <button type="button" class="btn btn-operator" onclick="appendToDisplay('*')">*</button>
+      <button type="button" class="btn btn-operator" onclick="appendToDisplay('-')">-</button>
+
+      <button type="button" class="btn btn-secondary" onclick="appendToDisplay('7')">7</button>
+      <button type="button" class="btn btn-secondary" onclick="appendToDisplay('8')">8</button>
+      <button type="button" class="btn btn-secondary" onclick="appendToDisplay('9')">9</button>
+      <button type="button" class="btn btn-operator" onclick="appendToDisplay('+')">+</button>
+
+      <button type="button" class="btn btn-secondary" onclick="appendToDisplay('4')">4</button>
+      <button type="button" class="btn btn-secondary" onclick="appendToDisplay('5')">5</button>
+      <button type="button" class="btn btn-secondary" onclick="appendToDisplay('6')">6</button>
+      <button type="button" class="btn btn-operator" onclick="appendToDisplay('.')">.</button>
+
+      <button type="button" class="btn btn-secondary btn-zero" onclick="appendToDisplay('0')">0</button>
+      <button type="button" class="btn btn-secondary" onclick="appendToDisplay('1')">1</button>
+      <button type="button" class="btn btn-secondary" onclick="appendToDisplay('2')">2</button>
+      <button type="button" class="btn btn-secondary" onclick="appendToDisplay('3')">3</button>
+      <button type="button" class="btn btn-equals" onclick="calculate()">=</button>
+
     </div>
-     <footer>
-      <p>&copy; scybud | All rights reserved</p>
-    </footer>
-    <script>
-      const display = document.getElementById("display");
+  </div>
 
-      function appendToDisplay(input) {
-        display.value += input;
-      }
+  <footer>
+    <p>&copy; scybud | All rights reserved</p>
+  </footer>
 
-      function clearDisplay() {
-        display.value = "";
-      }
+  <script>
+    const display = document.getElementById("display");
 
-      function calculate() {
-        try {
-          display.value = eval(display.value);
-        } catch {
-          display.value = "error.Try something else";
-        }
+    function appendToDisplay(input) {
+      display.value += input;
+    }
+
+    function clearDisplay() {
+      display.value = "";
+    }
+
+    function calculate() {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = "error.Try something else";
       }
-    </script>
-  </body>
+    }
+  </script>
+</body>
 </html>
