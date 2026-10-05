@@ -1,30 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Icons -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="favicon/favicon-16x16.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>Page Not Found</title>
+    <title>Page Not Found | Scybud</title>
     <style>
       :root {
         --accent1: #65abff;
@@ -32,148 +19,358 @@
         --accent3: #ffeb3b;
         --bg: #0d0d0d;
         --text-color: #ffffff;
+        --muted: #9aa4b2;
+        --card: #141a24;
       }
-   html {
-    height: 100vh;
-    width: 100vw;
-   }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        background: #000000;
+      }
       body {
         font-family: "Poppins", sans-serif;
-        background: var(--bg);
+        background: radial-gradient(circle at 50% 30%, #0a1423 0%, var(--bg) 60%) fixed;
         color: var(--text-color);
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
       }
       main {
+        width: 100%;
+        max-width: 640px;
         text-align: center;
       }
-      p {
-        text-align: center;
+
+      /* Robot */
+      #robot {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: float 4s ease-in-out infinite;
+      }
+      .antenna {
+        width: 3px;
+        height: 18px;
+        background: var(--accent1);
+        position: relative;
+        transform-origin: bottom center;
+        animation: sway 3s ease-in-out infinite;
+      }
+      .antenna::before {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent3);
+        box-shadow: 0 0 12px var(--accent3);
+        animation: blink 1.6s steps(1) infinite;
+      }
+      .robotHead {
+        width: 90px;
+        height: 82px;
+        border: 2px solid var(--accent1);
+        border-radius: 14px;
+        background: rgba(101, 171, 255, 0.06);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+      }
+      #eyes {
+        display: flex;
+        gap: 14px;
+      }
+      .eye {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--accent2);
+        border: 2px solid var(--accent1);
+        display: grid;
+        place-items: center;
+        animation: wink 6s infinite;
+      }
+      .eyeball {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent3);
+        box-shadow: 0 0 10px var(--accent3), 0 0 20px var(--accent3);
+        transition: transform 0.08s linear;
+      }
+      .mouth {
+        width: 34px;
+        height: 4px;
+        border-radius: 2px;
+        background: var(--accent1);
+      }
+
+      /* Heading */
+      h1 {
+        margin: 20px 0 0;
+        line-height: 1;
       }
       #notFound {
-        font-size: 10rem;
-        background: linear-gradient(
-          90deg,
-          var(--accent1),
-          var(--accent2),
-          var(--accent3)
-        );
+        display: inline-block;
+        font-size: clamp(4.5rem, 20vw, 8rem);
+        background: linear-gradient(90deg, var(--accent1), #b9d9ff, var(--accent3));
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
         color: transparent;
-        margin: 0;
+        animation: glitch 5s infinite;
       }
-      main p:nth-of-type(2) {
-        margin-bottom: 30px;
+      .title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin: 8px 0 6px;
       }
-      a {
+      .sub {
+        color: var(--muted);
+        margin: 0 0 8px;
+      }
+      #path {
+        display: inline-block;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        font-size: 0.85rem;
+        color: var(--accent3);
+        background: rgba(255, 235, 59, 0.08);
+        padding: 4px 10px;
+        border-radius: 8px;
+        margin-bottom: 28px;
+      }
+
+      /* Actions */
+      .actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 36px;
+      }
+      .btn {
+        display: inline-block;
         text-decoration: none;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 14px 24px;
+        border-radius: 12px;
+        border: 2px solid var(--accent1);
         background: var(--accent1);
         color: #0d0d0d;
-        padding: 20px;
-        border-radius: 12px;
-        font-weight: 700;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
       }
-      a:hover {
-        opacity: 0.7;
+      .btn.ghost {
+        background: transparent;
+        color: var(--accent1);
       }
-      #robot {
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Finder */
+      .finder h2 {
+        font-size: 1rem;
+        text-align: left;
+        margin: 0 0 12px;
+      }
+      #filter {
         width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        animation: bounce 4s linear infinite;
+        font: inherit;
+        color: var(--text-color);
+        background: var(--card);
+        border: 2px solid #26324a;
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 14px;
+      }
+      #filter:focus {
+        border-color: var(--accent1);
+        outline: none;
+      }
+      #results {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 10px;
+      }
+      #results a {
+        display: block;
+        text-align: left;
+        text-decoration: none;
+        color: inherit;
+        background: var(--card);
+        border: 2px solid transparent;
+        border-radius: 12px;
+        padding: 14px 16px;
+        transition: border-color 0.15s ease;
+      }
+      #results a:hover {
+        border-color: var(--accent1);
+      }
+      #results strong {
+        display: block;
+        color: var(--accent1);
+      }
+      #results span {
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      #results .best {
+        border-color: var(--accent3);
+      }
+      #empty {
+        color: var(--muted);
+        display: none;
       }
 
-      @keyframes bounce {
-        0% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(6px) scale(1.02);
-        }
-        100% {
-          transform: translateY(0);
-        }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--accent3);
+        outline-offset: 3px;
       }
 
-      .robotHead {
-        border: 2px solid var(--accent1);
-        width: 100px;
-        height: 100px;
-        border-radius: 8px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: 40px auto 0;
+      /* Animations */
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
       }
-      #eyes {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
+      @keyframes sway {
+        0%, 100% { transform: rotate(-6deg); }
+        50% { transform: rotate(6deg); }
       }
-      .eye {
-        margin-top: 10px;
-        padding-top: 10px;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background-color: var(--accent2);
+      @keyframes blink {
+        0%, 70% { opacity: 1; }
+        71%, 100% { opacity: 0.2; }
       }
-      .eyeball {
-        background: var(--accent3);
-        box-shadow: 0 0 10px var(--accent3), 0 0 20px var(--accent3);
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        animation: eyemove 5s ease infinite;
+      @keyframes wink {
+        0%, 94%, 100% { transform: scaleY(1); }
+        97% { transform: scaleY(0.1); }
       }
-      @keyframes eyemove {
-        0% {
-          transform: translate(0, 0);
-        }
-        25% {
-          transform: translate(10px, 0);
-        }
-        50% {
-          transform: translate(10px, 10px);
-        }
-        75% {
-          transform: translate(-3px, 8px);
-        }
-        100% {
-          transform: translate(0, 0);
-        }
+      @keyframes glitch {
+        0%, 92%, 100% { transform: translate(0); }
+        94% { transform: translate(-4px, 2px); }
+        96% { transform: translate(4px, -2px); }
+        98% { transform: translate(-2px, 0); }
       }
-
-      .mouth {
-        margin: auto;
-        width: 40px;
-        height: 4px;
-        background: var(--accent2);
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation: none !important;
+          transition: none !important;
+        }
       }
     </style>
   </head>
   <body>
     <main>
-      <div id="robot">
+      <div id="robot" aria-hidden="true">
+        <div class="antenna"></div>
         <div class="robotHead">
           <div id="eyes">
-            <div class="eye">
-              <div class="eyeball"></div>
-            </div>
-            <div class="eye">
-              <div class="eyeball"></div>
-            </div>
+            <div class="eye"><div class="eyeball"></div></div>
+            <div class="eye"><div class="eyeball"></div></div>
           </div>
           <div class="mouth"></div>
         </div>
       </div>
 
       <h1><span id="notFound">404</span></h1>
-      <p>Page Not Found</p>
-      <p>Gosh! We are lost again 😕.</p>
-      <a href="/">Go Home</a>
+      <p class="title">Page not found</p>
+      <p class="sub">We couldn't find this page:</p>
+      <code id="path"></code>
+
+      <div class="actions">
+        <a class="btn" href="/">Go home</a>
+        <button class="btn ghost" id="back" type="button">Go back</button>
+      </div>
+
+      <section class="finder">
+        <h2>Looking for something? Try one of these</h2>
+        <input id="filter" type="search" placeholder="Search Scybud products" aria-label="Search Scybud products" />
+        <ul id="results"></ul>
+        <p id="empty">No match. Head home to browse everything.</p>
+      </section>
     </main>
+
+    <script>
+      // Edit this list to match your live pages
+      const pages = [
+        { name: "Scybud", desc: "Discover and launch indie software", url: "/", keys: "home discover launch software" },
+        { name: "LogHue", desc: "Productivity app for tracking your work", url: "https://loghue.com", keys: "productivity log tracker dashboard billing" },
+        { name: "ZeFeed", desc: "Tech news in one clean feed", url: "https://zefeed.vercel.app", keys: "news tech feed explore history" },
+        { name: "Learn", desc: "Guides and docs", url: "https://learn.scybud.com", keys: "learn docs guides tutorial" },
+      ];
+
+      const pathEl = document.getElementById("path");
+      const list = document.getElementById("results");
+      const empty = document.getElementById("empty");
+      const filter = document.getElementById("filter");
+
+      // textContent keeps the shown path safe from injection
+      const requested = location.pathname + location.search;
+      pathEl.textContent = requested;
+
+      // Words from the broken URL, used to rank the closest page
+      const words = requested.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length > 2);
+      const score = (p) => words.filter((w) => (p.name + " " + p.keys).toLowerCase().includes(w)).length;
+      const best = pages.some((p) => score(p) > 0)
+        ? pages.reduce((a, b) => (score(b) > score(a) ? b : a))
+        : null;
+
+      function render(query = "") {
+        const q = query.trim().toLowerCase();
+        const matches = pages.filter((p) => !q || (p.name + " " + p.desc + " " + p.keys).toLowerCase().includes(q));
+        list.innerHTML = "";
+        matches.forEach((p) => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = p.url;
+          if (!q && p === best) a.className = "best";
+          const title = document.createElement("strong");
+          title.textContent = p === best && !q ? p.name + " (closest match)" : p.name;
+          const desc = document.createElement("span");
+          desc.textContent = p.desc;
+          a.append(title, desc);
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+        empty.style.display = matches.length ? "none" : "block";
+      }
+
+      render();
+      filter.addEventListener("input", () => render(filter.value));
+
+      // Back falls back to home when there is no history
+      document.getElementById("back").addEventListener("click", () => {
+        history.length > 1 ? history.back() : (location.href = "/");
+      });
+
+      // Robot pupils follow the pointer
+      const eyeballs = document.querySelectorAll(".eyeball");
+      const maxMove = 5;
+      document.addEventListener("pointermove", (e) => {
+        eyeballs.forEach((ball) => {
+          const r = ball.parentElement.getBoundingClientRect();
+          const dx = e.clientX - (r.left + r.width / 2);
+          const dy = e.clientY - (r.top + r.height / 2);
+          const dist = Math.hypot(dx, dy) || 1;
+          const m = Math.min(maxMove, dist / 20);
+          ball.style.transform = `translate(${(dx / dist) * m}px, ${(dy / dist) * m}px)`;
+        });
+      });
+    </script>
   </body>
 </html>
