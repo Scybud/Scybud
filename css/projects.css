@@ -25,9 +25,7 @@ main.container h1 {
 
 /* lay the project cards out in a grid, same rhythm as .product-cards */
 #other-projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--space-lg);
+
   margin-top: var(--space-xl);
 }
 
