@@ -29,7 +29,8 @@
   align-items: center;
   background: var(--surface-secondary);
   border-radius: var(--radius-lg);
-  padding: var(--space-md);
+box-shadow: inset 0 5px 15px #000;
+            padding: var(--space-md);
 }
 .scybud-com {
   border: 1px solid var(--border-primary);
@@ -52,7 +53,8 @@
   stroke: var(--border-primary);
   stroke-width: 1;
   transition: stroke 0.5s ease;
-  animation: glow 5s ease alternate infinite;
+  animation-delay: 1s;
+  animation: glow 2s ease alternate infinite;
 }
 @keyframes glow {
   0% {
