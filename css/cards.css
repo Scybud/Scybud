@@ -37,7 +37,7 @@
   background: var(--bg-secondary);
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-lg);
-  box-shadow: 5px 5px 5px #000000;
+  box-shadow: 5px 5px 0 #000000;
   transition: box-shadow 0.4s ease;
   margin-top: auto;
   width: fit-content;
@@ -69,13 +69,20 @@
   border-radius: var(--radius-lg);
   transition: height 0.5s ease;
 }
+.dropdown .dropdownName {
+  position: sticky;
+  top: 0;
+  padding-top: var(--space-sm);
+}
 .dropdown .dropdownName::before {
   content: "▲";
   display: inline-block;
   margin-right: var(--space-xs);
   transition: all 0.5s ease;
 }
+
 .drop {
+  padding-top: 0;
   height: 400px;
   overflow: auto;
   scrollbar-width: thin;
