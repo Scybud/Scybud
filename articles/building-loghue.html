@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Building LogHue Based on What Actually Annoys Me – Scybud Labs
+    </title>
+    <meta
+      name="description"
+      content="Collapsible folders, public note sharing with regenerate links, and flexible task times — three updates driven by real friction."
+    />
+
+    <!-- Scybud UI Core -->
+    <link rel="stylesheet" href="https://ui.scybud.com/css/variables.css" />
+    <link rel="stylesheet" href="https://ui.scybud.com/css/typography.css" />
+    <link rel="stylesheet" href="https://ui.scybud.com/css/layout.css" />
+    <link rel="stylesheet" href="https://ui.scybud.com/css/animations.css" />
+    <link
+      rel="stylesheet"
+      href="https://ui.scybud.com/components/buttons/global-buttons.css"
+    />
+
+    <link rel="stylesheet" href="css/articles.css" />
+  </head>
+  <body>
+    <a href="./index.html" class="backBtn">← Articles</a>
+
+    <div class="blog-container">
+      <header class="header-banner">
+        <h1>Building LogHue Based on What Actually Annoys Me</h1>
+        <div class="meta">
+          <span>Sep 25, 2026</span>
+          <span>·</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <div class="tldr">
+        <strong>TL;DR</strong>
+        LogHue now includes collapsible folders, simple public note sharing with
+        a regenerate-link option, and tasks that support start/end times and
+        customizable recurrence — all built from real pain points.
+      </div>
+
+      <div class="section" style="animation-delay: 0.08s">
+        <p>
+          I shipped three updates to LogHue over the last two weeks: notes
+          folders, public note sharing, and more flexible tasks. None of them
+          are big on their own. But together they say something about how I’m
+          building this product now, and it’s worth writing down.
+        </p>
+      </div>
+      <div class="section" style="animation-delay: 0.14s">
+        <h2>The flat list problem</h2>
+        <p>
+          Notes in LogHue used to just sit in one long list. I don’t scroll
+          through it, I search. But that only works when you know exactly what
+          you’re looking for. Glance at the list and it just looks unorganized —
+          nothing tells you at a glance where anything is or what it belongs
+          with.
+        </p>
+        <p>
+          The fix is straightforward: folders. Collapsible, so you can tuck away
+          what you’re not using. Anything you don’t file stays at the top level,
+          so nothing forces you to reorganize your whole workflow just to use
+          the feature.
+        </p>
+        <p>
+          It’s not a clever feature. It’s just something that was genuinely
+          missing.
+        </p>
+        <p>
+          The second update is public note sharing. Turn it on for a note, get a
+          link, share it. Turn it off, the link stops working and only you can
+          see it.
+        </p>
+        <p>
+          I went back and forth on how complicated to make this. Access
+          controls, expiring links, view counts. While working through it, I was
+          told the real gap in my plan was that the link never changed once it
+          existed. I didn’t think it mattered at first. Then it was explained
+          properly: without a way to regenerate it, an old link stays tied to
+          the note forever. So say you share a note with someone, later decide
+          they shouldn’t have access anymore, and turn sharing off. Then you
+          forget you ever shared it, or you update the note with something you
+          don’t want that person to see, and turn sharing back on. The same old
+          link still works. They can still open it.
+        </p>
+        <p>
+          That’s the kind of gap that doesn’t show up until someone’s data is
+          already exposed. So I added a regenerate button. The old link doesn’t
+          die automatically — some people will genuinely want it to keep working
+          — but now you get the choice: regenerate it and the old one stops
+          working, or leave it as is.
+        </p>
+        <p>
+          Past that, I kept the rest simple: off by default, and the whole
+          decision lives with the person who wrote the note. If I add more
+          later, it’ll be because people actually ask for it or I actually need
+          it myself, not because I assumed they would.
+        </p>
+      </div>
+      <div class="section" style="animation-delay: 0.2s">
+        <h2>Tasks that reflect how time actually works</h2>
+        <p>
+          The third change took the longest to get right. Tasks in LogHue only
+          ever had a deadline, a single point in time. That’s fine for a to-do
+          item. It’s not fine if you want your calendar to show you when you’re
+          actually busy versus when you’re free.
+        </p>
+        <p>
+          So, tasks can now have a start time and an end time, not just a due
+          point. And for recurring tasks, you can choose which days reminders
+          actually fire. Every day. Weekdays only. Weekends. Or you pick the
+          exact days, like every Monday and Thursday.
+        </p>
+        <p>
+          I’d shelved this idea months ago because I assumed nobody needed it.
+          Feedback from someone who lives in their calendar made it obvious I
+          was wrong. The calendar is a lot more useful now that it reflects real
+          blocks of time instead of just a scattering of deadlines.
+        </p>
+      </div>
+      <div class="section" style="animation-delay: 0.26s">
+        <h2>Why this matters more than the features themselves</h2>
+        <p>
+          I use LogHue heavily myself, and it’s no longer just me. Every one of
+          these three updates still came from something that genuinely got in my
+          way while using my own product, not from guessing what a hypothetical
+          user might want.
+        </p>
+        <p>
+          It’s a slower way to build. But I trust the output more, because I
+          know exactly why each piece exists.
+        </p>
+        <p>
+          If you’re using LogHue, I want to hear what’s still getting in your
+          way. That’s the next thing I’ll fix.
+        </p>
+        <p>
+          <a href="https://loghue.com" target="_blank" rel="noopener"
+            >loghue.com</a
+          >
+        </p>
+      </div>
+
+      <footer class="footer">© 2026 Scybud Labs · by Abdulroqib</footer>
+    </div>
+
+    <button id="scrollTopBtn" aria-label="Scroll to top">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path
+          d="M6 15L12 9L18 15"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <script type="module">
+      import { handleBackBtn } from "https://ui.scybud.com/js/ui.js";
+      handleBackBtn();
+
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      function toggleScrollButton() {
+        if (window.scrollY > 200) scrollBtn.classList.add("visible");
+        else scrollBtn.classList.remove("visible");
+      }
+      window.addEventListener("scroll", toggleScrollButton);
+      scrollBtn.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
+      );
+    </script>
+  </body>
+</html>

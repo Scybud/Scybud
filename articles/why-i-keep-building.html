@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Why I Keep Building Even Though Nobody Cares – Scybud Labs</title>
+    <meta
+      name="description"
+      content="You keep building because each project teaches new skills. The experience is an investment that pays off later."
+    />
+
+    <!-- Scybud UI Core -->
+    <link rel="stylesheet" href="https://ui.scybud.com/css/variables.css" />
+    <link rel="stylesheet" href="https://ui.scybud.com/css/typography.css" />
+    <link rel="stylesheet" href="https://ui.scybud.com/css/layout.css" />
+    <link rel="stylesheet" href="https://ui.scybud.com/css/animations.css" />
+    <link
+      rel="stylesheet"
+      href="https://ui.scybud.com/components/buttons/global-buttons.css"
+    />
+
+    <link rel="stylesheet" href="css/articles.css" />
+  </head>
+  <body>
+    <a href="./index.html" class="backBtn">← Articles</a>
+
+    <div class="blog-container">
+      <header class="header-banner">
+        <h1>Why I Keep Building Even Though Nobody Cares</h1>
+        <div class="meta">
+          <span>Sep 11, 2026</span>
+          <span>·</span>
+          <span>2 min read</span>
+        </div>
+      </header>
+
+      <div class="tldr">
+        <strong>TL;DR</strong>
+        You keep building because each project teaches new skills and improves
+        you as a developer, even if it fails to attract users. The experience is
+        an investment that pays off later.
+      </div>
+
+      <div class="section" style="animation-delay: 0.1s">
+        <p>If you’re a builder, you probably know the feeling.</p>
+        <p>
+          You pour your heart into an idea. You spend days or even months
+          designing, building, debugging, and polishing every little detail.
+          Throughout the process, you’re convinced this could be the project
+          that changes everything. The one that finally takes off. The one that
+          brings users, income, recognition, or whatever you’re chasing.
+        </p>
+        <p>Then launch day arrives.</p>
+        <p>You hit “publish” and wait.</p>
+        <p>Hours pass. Then days.</p>
+        <p>Nothing.</p>
+        <p>
+          Nobody signs up. Nobody talks about it. Nobody seems to need what you
+          built.
+        </p>
+        <p>
+          That’s when reality hits. It feels like all those weeks or months were
+          wasted. You start questioning yourself and wondering whether it’s even
+          worth building anything anymore.
+        </p>
+        <p>I’ve felt that before.</p>
+        <p>But I didn’t give up.</p>
+      </div>
+      <div class="section" style="animation-delay: 0.18s">
+        <p>
+          I’ve realized that even when a project doesn’t attract users, it still
+          gives me something valuable: experience. I never build the same thing
+          twice or stay inside my comfort zone. Every new project pushes me to
+          learn something I’ve never done before, whether it’s a new technology,
+          a different way of solving problems, or a better approach to designing
+          products.
+        </p>
+        <p>
+          Because of that, I don’t see these projects as failures. I see them as
+          investments in my skills.
+        </p>
+        <p>Would I rather have users? Of course.</p>
+        <p>Would I rather see my work make an impact? Absolutely.</p>
+        <p>
+          But I’ll always keep building, keep learning, and keep improving.
+          Every project makes me a better developer than I was before, and
+          eventually those lessons will add up.
+        </p>
+        <p>Maybe the product fails.</p>
+        <p>
+          But if you become better because you built it, then your time wasn’t
+          wasted.
+        </p>
+      </div>
+
+      <footer class="footer">© 2026 Scybud Labs · by Abdulroqib</footer>
+    </div>
+
+    <button id="scrollTopBtn" aria-label="Scroll to top">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path
+          d="M6 15L12 9L18 15"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <script type="module">
+      import { handleBackBtn } from "https://ui.scybud.com/js/ui.js";
+      handleBackBtn();
+
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      function toggleScrollButton() {
+        if (window.scrollY > 200) scrollBtn.classList.add("visible");
+        else scrollBtn.classList.remove("visible");
+      }
+      window.addEventListener("scroll", toggleScrollButton);
+      scrollBtn.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
+      );
+    </script>
+  </body>
+</html>
