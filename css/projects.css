@@ -55,6 +55,9 @@ main.container h1 {
   color: var(--muted);
   font-size: 0.95rem;
 }
+.tech-stack {
+  font-size: var(--text-xs);
+}
 .project p span {
   color: var(--text-secondary);
   font-weight: var(--font-bold);
@@ -108,4 +111,26 @@ main.container h1 {
 @media (max-width: 800px) {
   main.container h1 { font-size: 2.2rem; }
   #other-projects { grid-template-columns: 1fr; }
+}
+/* product logo next to the name */
+.product-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+.product-logo {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-primary);
+  background: var(--surface-primary);
+  object-fit: contain;
+}
+.product-logo.fallback {
+  display: grid;
+  place-items: center;
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--primary-light);
 }
