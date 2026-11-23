@@ -2,7 +2,7 @@
 .section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: calc(var(--space-xl) * 3) var(--space-lg);
+  padding: calc(var(--space-xl) * 3) var(--space-lg) 0;
 }
 h2 {
   font-size: var(--text-4xl);
